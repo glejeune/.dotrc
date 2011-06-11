@@ -1,0 +1,4 @@
+# Set up options... 
+zshrc_load_status MongoDB
+
+alias startmongo='mongod run --config /Users/greg/bin/homebrew/Cellar/mongodb/1.6.3-x86_64/mongod.conf'

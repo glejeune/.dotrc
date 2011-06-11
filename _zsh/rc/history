@@ -1,0 +1,12 @@
+## Set up history
+zshrc_load_status History
+
+HISTSIZE=1000
+HISTFILE="$HOME/.zsh_history"
+SAVEHIST=1000
+
+export SAVEHIST HISTFILE HISTSIZE
+
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE 
+

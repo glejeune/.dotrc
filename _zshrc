@@ -1,0 +1,13 @@
+zshrc_load_status () {
+  echo "\r.zshrc load: $* ... \e[0K"
+}
+
+fpath=(~/.zsh/functs $fpath)
+
+for file in ~/.zsh/rc/*; 
+do 
+  source $file 
+done
+
+[ -f /usr/bin/dircolors ] && eval `dircolors ~/.zsh/dircolors.gen`
+

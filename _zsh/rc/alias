@@ -1,0 +1,16 @@
+## Alias
+
+zshrc_load_status Alias
+
+alias ls='ls -G'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -al'
+
+alias k='clear'
+
+alias week='ruby -e "require \"date\"; puts Date.commercial( Time.now.year, ARGV[0].to_i|1, 1 ).strftime( \"%d-%m-%Y\")"'
+alias winme='/Users/greg/bin/homebrew/bin/synergys -f --config /Users/greg/bin/synergy.conf'
+
+kolor () { highlight -l -A $@  | less -R }
+

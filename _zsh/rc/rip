@@ -1,0 +1,13 @@
+# Set up options... 
+zshrc_load_status Rip
+
+setopt ALL_EXPORT
+setopt CORRECT
+setopt MENU_COMPLETE
+setopt EXTENDED_GLOB 
+setopt AUTO_PARAM_SLASH
+
+# This makes the shell give immediate notice of
+# changes in job status, which is my preference. 
+
+setopt NOTIFY

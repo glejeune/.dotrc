@@ -1,0 +1,9 @@
+## Set up env
+zshrc_load_status Cappuccino
+
+# Cappuccino
+#export CAPP_BUILD=/Users/greg/bin/capp_build
+
+export NARWHAL_ENGINE=jsc
+export PATH=/Users/greg/bin/narwhal/bin:$PATH
+alias sws='jackup -e "require(\"jack/file\").File(\".\")" -E deployment'

@@ -1,0 +1,5 @@
+# Set up options... 
+zshrc_load_status Node.js
+
+export NODE_PATH=/Users/greg/bin/homebrew/lib/node
+export PATH=$PATH:/Users/greg/bin/homebrew/share/npm/bin

@@ -1,0 +1,4 @@
+# Set up options... 
+zshrc_load_status MySQL
+
+export PATH=$PATH:/usr/local/mysql/bin/

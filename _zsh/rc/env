@@ -1,0 +1,18 @@
+## Set up env
+zshrc_load_status Env
+
+SHELL=zsh
+
+export SHELL
+
+export EDITOR=mate
+
+export PATH=/usr/local/bin:~/bin:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
+
+# Git
+export GIT_EDITOR="mate -w"
+
+# Maven
+M2_REPO=~/.m2/repository

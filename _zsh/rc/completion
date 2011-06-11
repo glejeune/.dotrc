@@ -1,0 +1,78 @@
+## Complétion pour zsh.   -*- shell-script -*-
+# {{{ New advanced completion system
+
+zshrc_load_status Completion
+
+_compdir=/usr/share/zsh/functions
+[[ -z $fpath[(r)$_compdir] ]] && fpath=($fpath $_compdir)
+autoload -U compinit
+compinit
+
+##
+## Enable the way cool bells and whistles.
+##
+
+# General completion technique
+zstyle ':*' completer _complete _correct _approximate _prefix
+zstyle '::prefix-1:*' completer _complete
+zstyle ':incremental:*' completer _complete _correct
+zstyle ':predict:*' completer _complete
+
+# Cache functions created by _regex_arguments
+zstyle ':*' cache-path ~/.zsh/.cache-path
+
+# Expand partial paths
+zstyle ':*' expand 'yes'
+zstyle ':*' squeeze-slashes 'yes'
+
+# Include non-hidden directories in globbed file completions
+# for certain commands
+zstyle '::complete:*' \
+  tag-order 'globbed-files directories' all-files
+zstyle '::complete:*:tar:directories' file-patterns '*~.*(-/)'
+
+# Separate matches into groups
+zstyle ':*:matches' group 'yes'
+
+# Describe each match group.
+# This one assumes that your terminal has a dark background.
+# zstyle '*:descriptions' format "$fg_bold[white]%d$fg_no_bold[white]"
+#zstyle ':*:descriptions' format "%B---- %d%b"
+zstyle ':*:descriptions' format "-%B-< %d >-%b-"
+
+# Messages/warnings format
+zstyle ':*:messages' format '%B%U---- %d%u%b'
+zstyle ':*:warnings' format '%B%U---- no match for: %d%u%b'
+
+
+# Describe options in full
+zstyle ':*:options' description 'yes'
+zstyle ':*:options' auto-description '%d'
+
+# hosts
+zstyle ':*' hosts $hostnames
+
+# utilisateurs
+zstyle ':*:my-accounts' users-hosts $my_accounts
+zstyle ':*:other-accounts' users-hosts $other_accounts
+
+zstyle ':*:history-words' stop 'verbose'
+zstyle ':*:history-words' remove_all_dups 'yep'
+
+zstyle ':*:*:telnet:*' hosts-ports-users $telnet_hosts_ports_use
+
+
+# zmodload -i zsh/complist
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:*:kill:*:processes' list-colors \
+  '=(#b) #([0-9]#)*=0=01;31'
+
+# show directories in yellow
+zstyle ':completion:*' list-colors 'di=01;33'
+
+
+## Faudra qu'on m'explique comment ça marche, zstyle. En attendant...
+compctl -k '( play   stop    open    close   pause   resume  ff \
+              rew     sites next   prev    getvol  setvol  status  \
+              rndplay slot    list info   tracks ext     refresh \
+              device )' cdcd
