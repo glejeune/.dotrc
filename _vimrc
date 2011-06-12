@@ -1,4 +1,4 @@
-colorscheme ir_black
+" colorscheme ir_black
 
 " enable syntax coloring
 syntax enable
@@ -11,17 +11,17 @@ set fileencoding=utf-8
 set wildmenu
 
 " disable arrow key mappings
-noremap <Up> ""
-noremap <Down> ""
-noremap <Left> ""
-noremap <Right> ""
+"noremap <Up> ""
+"noremap <Down> ""
+"noremap <Left> ""
+"noremap <Right> ""
 
-" tab are replaced by 4 spaces
+" tab are replaced by 3 spaces (a la Vidal :()
 set expandtab
-set tabstop=4
+set tabstop=3
 
-" << / >> right / left shift by 4 spaces
-set shiftwidth=4
+" << / >> right / left shift by 3 spaces
+set shiftwidth=3
 
 " copy indent from current line on <CR> 
 set autoindent
@@ -39,3 +39,7 @@ noremap <F2> :NERDTreeToggle<CR>
 
 " TODO : backspace in insert mode : backspace option
 set backspace=eol,start,indent
+
+" Show line number
+set nu
+
