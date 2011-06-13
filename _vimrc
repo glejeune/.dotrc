@@ -43,3 +43,7 @@ set backspace=eol,start,indent
 " Show line number
 set nu
 
+" Change list characters and use \l to show/hide list characters
+set listchars=tab:▸\ ,eol:¬
+nmap <leader>l :set list!<CR>
+
