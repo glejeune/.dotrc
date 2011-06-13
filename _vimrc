@@ -27,7 +27,7 @@ set shiftwidth=3
 set autoindent
 
 " map nerdtree to F2
-noremap <F2> :NERDTreeToggle<CR>
+noremap <F2> :e.<CR>
 
 " TODO : search how to manipulate windows
 " Ctrl+w
