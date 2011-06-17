@@ -47,3 +47,5 @@ set nu
 set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
 
+set statusline=%t\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ] 
+set laststatus=2
