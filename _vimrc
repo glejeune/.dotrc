@@ -42,6 +42,8 @@ set shiftwidth=3
 " copy indent from current line on <CR> 
 set autoindent
 
+let mapleader = ","
+
 " map nerdtree to F2
 noremap <F2> :e.<CR>
 
@@ -62,6 +64,8 @@ set nu
 " Change list characters and use \l to show/hide list characters
 set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
+
+nmap <leader>n :tabNext<CR>
 
 set statusline=%t\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ] 
 set laststatus=2
