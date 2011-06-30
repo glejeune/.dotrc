@@ -47,7 +47,7 @@ set autoindent
 let mapleader = ","
 
 " map nerdtree to F2
-noremap <F2> :e.<CR>
+noremap <F2> :NERDTreeToggle<CR>
 
 " TODO : search how to manipulate windows
 " Ctrl+w
@@ -69,5 +69,5 @@ nmap <leader>l :set list!<CR>
 
 nmap <leader>n :tabnew<CR>
 
-set statusline=%t\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ] 
+set statusline=%t\ %Y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ] 
 set laststatus=2
