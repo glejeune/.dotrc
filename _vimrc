@@ -18,6 +18,8 @@ execute 'language message '.s:langCode
 
 " enable syntax coloring
 syntax enable
+set background=dark
+colorscheme solarized
 
 " use utf8 encoding for vim files and for default file encoding
 set encoding=utf-8
