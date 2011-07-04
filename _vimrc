@@ -69,5 +69,19 @@ nmap <leader>l :set list!<CR>
 
 nmap <leader>n :tabnew<CR>
 
-set statusline=%t\ %Y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ] 
+set statusline=%t%m\ %Y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ] 
 set laststatus=2
+hi StatusLine ctermfg=darkgreen
+hi StatusLineNC cterm=none 
+function! InsertStatuslineColor(mode)
+   if a:mode == 'i'
+      hi StatusLine term=reverse ctermfg=darkred
+   elseif a:mode == 'r'
+      hi StatusLine term=reverse ctermfg=darkmagenta
+   else
+      hi StatusLine term=reverse ctermfg=darkblue
+   endif
+endfunction
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi StatusLine term=reverse ctermfg=darkgreen
