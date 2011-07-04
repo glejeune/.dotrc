@@ -16,3 +16,6 @@
 [submodule "_vim/bundle/scala"]
 	path = _vim/bundle/scala
 	url = git://github.com/ewiplayer/vim-scala.git
+[submodule "_vim/bundle/ack"]
+	path = _vim/bundle/ack
+	url = git://github.com/vim-scripts/ack.vim.git
