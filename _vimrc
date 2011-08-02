@@ -91,3 +91,13 @@ endfunction
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi StatusLine term=reverse ctermfg=darkgreen
 
+" Bubble multiple lines
+nmap <C-S-Up> ddkP
+nmap <C-S-Down> ddp
+" Bubble single lines
+vmap <C-S-Up> xkP`[V`]
+vmap <C-S-Down> xp`[V`]
+
+" Page Up/Down
+nmap <C-Up> <C-b>
+nmap <C-Down> <C-f>

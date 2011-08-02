@@ -1,5 +1,0 @@
-# Set up options... 
-zshrc_load_status HomeBrew
-
-export PATH=/Users/greg/bin/homebrew/bin:/Users/greg/bin/homebrew/sbin:$PATH
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/Users/greg/bin/homebrew/lib
