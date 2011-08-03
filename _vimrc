@@ -99,9 +99,9 @@ vmap <C-S-Down> xp`[V`]
 nmap <C-Up> <C-b>
 nmap <C-Down> <C-f>
 
-" taglist options
-let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
-noremap <F3> :Tlist<CR>
 " map nerdtree to F2
 noremap <F2> :NERDTreeToggle<CR>
 
+" tagbar configuration
+let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
+noremap <F3> :TagbarToggle<CR>
