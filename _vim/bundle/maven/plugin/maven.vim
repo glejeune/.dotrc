@@ -42,4 +42,4 @@ function! Mvn(args)
 endfunction
 command! -nargs=* Mvn call Mvn(<q-args>)
 command! MvnClean call Mvn("clean")
-command! MvnTestCurrent call Mvn("-Dtest=" . expand("%:t:r") . " test")
+command! MvnTestCurrent call Mvn("-DfailIfNoTests=false -Dtest=" . expand("%:t:r") . " test")
