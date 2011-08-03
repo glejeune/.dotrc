@@ -8,37 +8,37 @@
 " ============================================================================
 
 if &cp || exists('g:loaded_maven')
-    finish
+   finish
 endif
 
 if !exists('g:maven_mvn_bin')
-    if executable('mvn')
-        let g:maven_mvn_bin = 'mvn'
-    elseif executable('mvn.exe')
-        let g:maven_mvn_bin = 'mvn.exe'
-    elseif executable('maven')
-        let g:maven_mvn_bin = 'maven'
-    elseif executable('maven.exe')
-        let g:maven_mvn_bin = 'maven.exe'
-    else
-        echomsg 'Maven: mvn command not found, skipping plugin'
-        finish
-    endif
+   if executable('mvn')
+      let g:maven_mvn_bin = 'mvn'
+   elseif executable('mvn.exe')
+      let g:maven_mvn_bin = 'mvn.exe'
+   elseif executable('maven')
+      let g:maven_mvn_bin = 'maven'
+   elseif executable('maven.exe')
+      let g:maven_mvn_bin = 'maven.exe'
+   else
+      echomsg 'Maven: mvn command not found, skipping plugin'
+      finish
+   endif
 else
-    let g:maven_mvn_bin = expand(g:maven_mvn_bin)
-    if !executable(g:maven_mvn_bin)
-        echomsg 'Maven: mvn command not found in specified place,'
-              \ 'skipping plugin'
-        finish
-    endif
+   let g:maven_mvn_bin = expand(g:maven_mvn_bin)
+   if !executable(g:maven_mvn_bin)
+      echomsg 'Maven: mvn command not found in specified place,'
+               \ 'skipping plugin'
+      finish
+   endif
 endif
 
 let g:loaded_maven = 1
 
 function! Mvn(args)
-    let maven_command=g:maven_mvn_bin . " " . a:args
-    "echo system(maven_command . " " . a:args)
-    execute "!" . maven_command . ""
+   let maven_command=g:maven_mvn_bin . " " . a:args
+   "echo system(maven_command . " " . a:args)
+   execute "!" . maven_command . ""
 endfunction
 command! -nargs=* Mvn call Mvn(<q-args>)
 command! MvnClean call Mvn("clean")
