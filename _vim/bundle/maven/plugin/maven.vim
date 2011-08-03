@@ -33,8 +33,7 @@ else
     endif
 endif
 
-let g:loaded_tagbar = 1
-
+let g:loaded_maven = 1
 
 function! Mvn(args)
     let maven_command=g:maven_mvn_bin . " " . a:args
