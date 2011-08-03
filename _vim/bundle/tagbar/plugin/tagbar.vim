@@ -772,7 +772,8 @@ function! s:InitTypes()
              \ {'short' : 'a', 'long' : 'aclasses',  'fold' : 0 },
              \ {'short' : 'c', 'long' : 'classes',   'fold' : 0 },
              \ {'short' : 'r', 'long' : 'cclasses',  'fold' : 0 },
-             \ {'short' : 'm', 'long' : 'methods',   'fold' : 0 }
+             \ {'short' : 'm', 'long' : 'methods',   'fold' : 0 },
+             \ {'short' : 'M', 'long' : 'pmethods',   'fold' : 0 }
              \ ]
     let type_scala.sro        = '.'
     let type_scala.kind2scope = {
