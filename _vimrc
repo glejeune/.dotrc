@@ -100,8 +100,10 @@ nmap <C-Up> <C-b>
 nmap <C-Down> <C-f>
 
 " map nerdtree to F2
+let g:NERDTreeWinSize=45
 noremap <F2> :NERDTreeToggle<CR>
 
 " tagbar configuration
+let g:tagbar_width=45
 let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
 noremap <F3> :TagbarToggle<CR>
