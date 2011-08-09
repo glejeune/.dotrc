@@ -19,3 +19,6 @@
 [submodule "_vim/bundle/scala"]
 	path = _vim/bundle/scala
 	url = git://github.com/rosstimson/scala-vim-support.git
+[submodule "_vim/bundle/dirdiff"]
+	path = _vim/bundle/dirdiff
+	url = git://github.com/vim-scripts/DirDiff.vim.git

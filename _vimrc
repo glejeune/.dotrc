@@ -70,7 +70,9 @@ nmap <leader><up> <C-W>K
 nmap <leader><down> <C-W>J
 nmap <leader><left> <C-W>H
 nmap <leader><right> <C-W>L
+nmap <leader>$ <C-]> 
 
+" Statusline
 set statusline=%f%m\ %{fugitive#statusline()}\ %y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ] 
 set laststatus=2
 hi StatusLine ctermfg=darkgreen
@@ -87,6 +89,10 @@ endfunction
 
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi StatusLine term=reverse ctermfg=darkgreen
+
+" search
+set hlsearch
+hi Search term=underline cterm=underline ctermfg=5
 
 " Bubble multiple lines
 nmap <C-S-Up> ddkP
@@ -107,3 +113,44 @@ noremap <F2> :NERDTreeToggle<CR>
 let g:tagbar_width=45
 let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
 noremap <F3> :TagbarToggle<CR>
+
+"  Set folding stuff
+:set fmr={,}
+:set fdm=marker
+:set foldlevelstart=1000
+
+" Set a nicer foldtext function
+set foldtext=MyFoldText()
+function! MyFoldText()
+  let line = getline(v:foldstart)
+  if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
+    let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+    let linenum = v:foldstart + 1
+    while linenum < v:foldend
+      let line = getline( linenum )
+      let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+      if comment_content != ''
+        break
+      endif
+      let linenum = linenum + 1
+    endwhile
+    let sub = initial . ' ' . comment_content
+  else
+    let sub = line
+    let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+    if startbrace == '{'
+      let line = getline(v:foldend)
+      let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+      if endbrace == '}'
+        let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+      endif
+    endif
+  endif
+  let n = v:foldend - v:foldstart + 1
+  let info = " " . n . " lines"
+  let sub = sub . "                                                                                                                  "
+  let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
+  let fold_w = getwinvar( 0, '&foldcolumn' )
+  let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
+  return sub . info
+endfunction

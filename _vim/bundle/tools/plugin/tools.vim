@@ -26,3 +26,4 @@ function! Vf(name)
    execute "silent! cd " . l:list
 endfunction
 command! -nargs=* -complete=file Vf call Vf(<q-args>)
+
