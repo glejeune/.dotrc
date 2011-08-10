@@ -1,4 +1,11 @@
-" cscope integration
+" ============================================================================
+" File:        cscope.vim
+" Description: Vim cscope integration
+" Author:      Gregoire Lejeune <gregoire.lejeune@free.fr>
+" Licence:     Vim licence
+" Website:     http://algorithmique.net
+" Version:     0.1
+" ============================================================================
 
 if &cp || exists('g:loaded_cscope')
    finish
@@ -24,9 +31,15 @@ endif
 
 let g:loaded_cscope = 1
 
+" -----------------------------------------------------------------------------
+
+if !exists('g:cscope_autoregen')
+   let g:cscope_autoregen=1
+end
+
 let g:cscope_files_exist=0
 if !exists('g:cscope_file') 
-   let g:cscope_file = "cscope"
+   let g:cscope_file = ".cscope"
 end
 let g:cscope_reffile = g:cscope_file . ".out"
 let g:cscope_sourcefile = g:cscope_file . ".files"
@@ -36,21 +49,32 @@ if filereadable(g:cscope_reffile) && filereadable(g:cscope_sourcefile)
    let g:cscope_files_exist=1
 end
 
-function! CscopeAdd(ext)
-   let find_command="find . -name \"*." . a:ext . "\" > " . g:cscope_sourcefile
-   let cscope_command=g:cscope_bin . " -b -f " . g:cscope_reffile . " -i " . g:cscope_sourcefile
+" -----------------------------------------------------------------------------
 
-   let find_result=system(find_command)
+function! CscopeAdd(...)
+   let remove_sourcefile=system("rm -f " . g:cscope_sourcefile)
+   for ext in a:000
+      let find_command="find . -name \"*." . ext . "\" >> " . g:cscope_sourcefile
+      let find_result=system(find_command)
+   endfor
+
+   let cscope_command=g:cscope_bin . " -b -f " . g:cscope_reffile . " -i " . g:cscope_sourcefile
    let cscope_result=system(cscope_command)
 
    let g:cscope_files_exist=1
 
    echomsg "cscope reference and source files created : " . g:cscope_reffile . ", " . g:cscope_sourcefile
 endfunction
+command! -nargs=* CscopeAdd call CscopeAdd(<f-args>)
+
 if exists('g:cscope_autogen') 
    call CscopeAdd(g:cscope_autogen)
 end
-command! -nargs=1 CscopeAdd call CscopeAdd(<f-args>)
+if g:cscope_autoregen == 1 && g:cscope_files_exist == 1
+   " TODO: regenerate cscope files!
+end
+
+" -----------------------------------------------------------------------------
 
 function! CscopeFind(index, symbol)
    if g:cscope_files_exist == 0
