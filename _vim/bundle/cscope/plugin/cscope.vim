@@ -43,6 +43,8 @@ function! CscopeAdd(ext)
    let find_result=system(find_command)
    let cscope_result=system(cscope_command)
 
+   let g:cscope_files_exist=1
+
    echomsg "cscope reference and source files created : " . g:cscope_reffile . ", " . g:cscope_sourcefile
 endfunction
 if exists('g:cscope_autogen') 
