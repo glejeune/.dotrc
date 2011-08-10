@@ -5,7 +5,7 @@ SHELL=zsh
 
 export SHELL
 
-export EDITOR=mate
+export EDITOR=vim
 
 export PATH=/opt/bin:/usr/local/bin:~/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib

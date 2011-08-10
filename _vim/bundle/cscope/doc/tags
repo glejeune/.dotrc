@@ -1,0 +1,5 @@
+:CscopeAdd	cscope.txt	/*:CscopeAdd*
+:CscopeFind	cscope.txt	/*:CscopeFind*
+cscope-author	cscope.txt	/*cscope-author*
+cscope-plugin	cscope.txt	/*cscope-plugin*
+cscope.txt	cscope.txt	/*cscope.txt*

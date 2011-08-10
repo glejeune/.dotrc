@@ -1,0 +1,26 @@
+*cscope.txt*   Plugin that integrates cscope with Vim 
+
+==============================================================================
+Author:  Gregoire Lejeune <gregoire.lejeune@free.fr>           *cscope-author*
+License: Same terms as Vim itself (see |license|)
+
+==============================================================================
+INTRODUCTION                                                   *cscope-plugin*
+
+This plugin is a front for the cscope tool.
+
+:CscopeAdd {extensions}                                           *:CscopeAdd*
+
+    Search recursively in the current directory, all files with {extensions}
+    to generate the source and reference files needed by cscope.
+
+:CscopeFind {field} {term}                                       *:CscopeFind*
+
+    Search {term} in the cscope {field}.
+
+Files containing the search term will be listed in the split window, along
+with the line number of the occurrence, once for each occurrence.  <Enter> on
+a line in this window will open the file, and place the cursor on the matching
+line.
+
+See http://cscope.sourceforge.net/ for more information.

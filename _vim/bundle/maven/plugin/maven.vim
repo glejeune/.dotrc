@@ -47,10 +47,6 @@ command! MvnTestCurrent call Mvn("-DfailIfNoTests=false -Dtest=" . expand("%:t:r
 function! MvnCompile()
    let maven_command=g:maven_mvn_bin . " -q compile | grep \"\\[[0-9]*,[0-9]*\\]\" | sort -u | sed -e \"s|\\[ERROR\\] `pwd`/||\" | sed -e 's/:\\[\\([0-9]*\\),\\([0-9]*\\)\\]\\(.*\\)$/|\\1| \\2 -- \\3/'"
    cexpr system(maven_command)
-
-   "let l:list=system(maven_command)
-   "echo l:list
-   "call setqflist(l:list)
-  botright copen
+   botright copen
 endfunction
 command! MvnCompile call MvnCompile()
