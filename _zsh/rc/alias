@@ -14,3 +14,5 @@ alias winme='/Users/greg/bin/homebrew/bin/synergys -f --config /Users/greg/bin/s
 
 kolor () { highlight -l -A $@  | less -R }
 
+alias gl='git log --oneline --graph --decorate -20 --color'
+alias gco='git checkout'

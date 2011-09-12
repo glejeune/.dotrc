@@ -71,6 +71,7 @@ nmap <leader><down> <C-W>J
 nmap <leader><left> <C-W>H
 nmap <leader><right> <C-W>L
 nmap <leader>$ <C-]> 
+nmap <leader><space> :nohlsearch<CR>
 
 " Statusline
 set statusline=%f%m\ %{fugitive#statusline()}\ %y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ] 
