@@ -16,3 +16,4 @@ export GIT_EDITOR="vim -w"
 
 # Maven
 M2_REPO=~/.m2/repository
+MAVEN_OPTS=-Xmx1024m
