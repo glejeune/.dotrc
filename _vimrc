@@ -19,6 +19,8 @@ execute 'language message '.s:langCode
 " enable syntax coloring
 syntax enable
 set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 colorscheme solarized
 
 " use utf8 encoding for vim files and for default file encoding
