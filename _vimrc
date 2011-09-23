@@ -117,6 +117,9 @@ let g:tagbar_width=45
 let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
 noremap <F3> :TagbarToggle<CR>
 
+" DiffTree
+noremap <F4> :DiffOrigToggle<CR>
+
 "  Set folding stuff
 :set fmr={,}
 :set fdm=marker
@@ -157,3 +160,15 @@ function! MyFoldText()
   let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
   return sub . info
 endfunction
+
+" GUI options OFF
+" remove gui icons bar
+set guioptions-=T
+" remove menus
+set guioptions-=m
+set guioptions-=g
+" remove all scrollbars
+set guioptions-=R
+set guioptions-=r
+set guioptions-=L
+set guioptions-=l
