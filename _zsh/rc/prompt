@@ -5,7 +5,21 @@ autoload -U colors
 colors
 
 git_prompt_info() {
-  ref=$(git branch 2> /dev/null | grep '*' | sed -e 's/\* //') || return
+  ref=""
+  tag_name=$(git tag 2>/dev/null)
+  branch_name=$(git symbolic-ref -q HEAD 2>/dev/null)
+  branch_name=${branch_name##refs/heads/}
+  if [ "Z$branch_name" != "Z" ]; then
+    ref=$branch_name
+  else
+    if [ "Z$tag_name" != "Z" ]; then
+      ref="TAG: "$tag_name
+    else
+      return
+    fi
+  fi
+
+  #ref=$(git branch 2> /dev/null | grep '*' | sed -e 's/\* //') || return
   echo $ref
 }
 
