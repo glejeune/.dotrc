@@ -14,5 +14,18 @@ alias winme='/Users/greg/bin/homebrew/bin/synergys -f --config /Users/greg/bin/s
 
 kolor () { highlight -l -A $@  | less -R }
 
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+echo ${ref#refs/heads/}
+}
+
+alias ggpull='git pull origin $(current_branch)'
+#compdef ggpull=git
+alias ggpush='git push origin $(current_branch)'
+#compdef ggpush=git
+
 alias gl='git log --oneline --graph --decorate -20 --color'
 alias gco='git checkout'
+#compdef gco=git
+
+alias gst='git status'
