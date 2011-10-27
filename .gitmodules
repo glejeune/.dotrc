@@ -1,24 +1,32 @@
 [submodule "_vim/bundle/repeat"]
 	path = _vim/bundle/repeat
 	url = git://github.com/tpope/vim-repeat.git
+   ignore = dirty
 [submodule "_vim/bundle/fugitive"]
 	path = _vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+   ignore = dirty
 [submodule "_vim/bundle/nerdtree"]
 	path = _vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+   ignore = dirty
 [submodule "_vim/bundle/surround"]
 	path = _vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
+   ignore = dirty
 [submodule "_vim/bundle/solarized"]
 	path = _vim/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+   ignore = dirty
 [submodule "_vim/bundle/ack"]
 	path = _vim/bundle/ack
 	url = git://github.com/vim-scripts/ack.vim.git
+   ignore = dirty
 [submodule "_vim/bundle/scala"]
 	path = _vim/bundle/scala
 	url = git://github.com/rosstimson/scala-vim-support.git
+   ignore = dirty
 [submodule "_vim/bundle/dirdiff"]
 	path = _vim/bundle/dirdiff
 	url = git://github.com/vim-scripts/DirDiff.vim.git
+   ignore = dirty
