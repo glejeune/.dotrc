@@ -9,11 +9,6 @@ export EDITOR=vim
 
 export PATH=/opt/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
 
 # Git
 export GIT_EDITOR="vim -w"
-
-# Maven
-M2_REPO=~/.m2/repository
-MAVEN_OPTS=-Xmx1024m
