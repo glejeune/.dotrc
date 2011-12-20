@@ -35,3 +35,5 @@ alias gls='git ls-files'
 alias mci='mvn clean install'
 alias mcit='mvn clean install -DskipTests'
 alias mee='mvn exec:exec'
+
+alias tmux='TERM=screen-256color-bce tmux'

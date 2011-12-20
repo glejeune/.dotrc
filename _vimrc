@@ -172,3 +172,7 @@ set guioptions-=R
 set guioptions-=r
 set guioptions-=L
 set guioptions-=l
+
+let g:fuf_modesDisable=[]
+let g:slime_target = "tmux"
+set t_Co=256

@@ -35,3 +35,6 @@
 	path = _vim/bundle/l9
 	url = git://github.com/git-mirror/vim-l9.git
    ignore = dirty
+[submodule "_vim/bundle/slime"]
+	path = _vim/bundle/slime
+	url = git://github.com/jpalardy/vim-slime.git
