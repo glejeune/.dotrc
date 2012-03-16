@@ -34,10 +34,6 @@
 	path = _vim/bundle/slime
 	url = git://github.com/jpalardy/vim-slime.git
    ignore = dirty
-[submodule "_vim/bundle/l9"]
-	path = _vim/bundle/l9
-	url = git://github.com/git-mirror/vim-l9.git
-   ignore = dirty
 [submodule "_vim/bundle/snipmate"]
 	path = _vim/bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
