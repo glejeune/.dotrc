@@ -36,12 +36,12 @@ set wildmenu
 "noremap <Left> ""
 "noremap <Right> ""
 
-" tab are replaced by 3 spaces (a la Vidal :()
+" tab are replaced by 2 spaces
 set expandtab
-set tabstop=3
+set tabstop=2
 
 " << / >> right / left shift by 3 spaces
-set shiftwidth=3
+set shiftwidth=2
 
 " copy indent from current line on <CR> 
 set autoindent
