@@ -39,3 +39,6 @@
 [submodule "_vim/bundle/l9"]
 	path = _vim/bundle/l9
 	url = git://github.com/git-mirror/vim-l9.git
+[submodule "_vim/bundle/slime"]
+	path = _vim/bundle/slime
+	url = git://github.com/jpalardy/vim-slime.git
