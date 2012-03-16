@@ -40,3 +40,6 @@
 [submodule "_vim/bundle/fuzzyfinder"]
 	path = _vim/bundle/fuzzyfinder
 	url = git://github.com/git-mirror/vim-fuzzyfinder.git
+[submodule "_vim/bundle/l9"]
+	path = _vim/bundle/l9
+	url = git://github.com/git-mirror/vim-l9.git
