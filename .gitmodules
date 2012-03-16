@@ -46,3 +46,6 @@
 	path = _vim/bundle/slime
 	url = git://github.com/jpalardy/vim-slime.git
    ignore = dirty
+[submodule "_vim/bundle/tagbar"]
+	path = _vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
