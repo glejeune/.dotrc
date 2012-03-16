@@ -30,10 +30,6 @@
 	path = _vim/bundle/dirdiff
 	url = git://github.com/vim-scripts/DirDiff.vim.git
    ignore = dirty
-[submodule "_vim/bundle/slime"]
-	path = _vim/bundle/slime
-	url = git://github.com/jpalardy/vim-slime.git
-   ignore = dirty
 [submodule "_vim/bundle/snipmate"]
 	path = _vim/bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
