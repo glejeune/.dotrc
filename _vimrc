@@ -76,7 +76,7 @@ nmap <leader>$ <C-]>
 nmap <leader><space> :nohlsearch<CR>
 
 " Statusline
-set statusline=%f%m\ %{fugitive#statusline()}\ %y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ] 
+set statusline=%f%m\ %{fugitive#statusline()}\ %y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ]\ %#warningmsg#\ %{SyntasticStatuslineFlag()}\ %* 
 set laststatus=2
 hi StatusLine ctermfg=darkgreen
 hi StatusLineNC cterm=none 
