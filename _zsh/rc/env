@@ -12,3 +12,6 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # Git
 export GIT_EDITOR="vim -w"
+
+#vmail
+export VMAIL_BROWSER=lynx

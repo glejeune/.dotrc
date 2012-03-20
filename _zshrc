@@ -11,3 +11,5 @@ done
 
 [ -f /usr/bin/dircolors ] && eval `dircolors ~/.zsh/dircolors.gen`
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
