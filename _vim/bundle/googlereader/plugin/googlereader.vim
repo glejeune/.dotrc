@@ -378,10 +378,8 @@ function! s:ShowEntryInBrowser()
 
   if has('win32')
     silent! exec "!start rundll32 url.dll,FileProtocolHandler ".escape(b:url ,'#')
-  elseif has('mac')
-    silent! exec "!open '".escape(b:url ,'#')."'"
   else
-    call system("x-www-browser '".b:url."' 2>&1 > /dev/null &")
+    silent! exec "!open '".escape(b:url ,'#')."'"
   endif
   redraw!
 endfunction
