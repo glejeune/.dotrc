@@ -57,3 +57,4 @@
 [submodule "_vim/bundle/twitvim"]
 	path = _vim/bundle/twitvim
 	url = git://github.com/vim-scripts/TwitVim.git
+   ignore = dirty
