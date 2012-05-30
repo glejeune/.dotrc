@@ -33,7 +33,7 @@ precmd () {
   #BATTERY=$(ioreg -l | grep -i capacity | tr '\n' ' | ' | awk '{printf("%.2f", $10/$5 * 100)}')
   BATTERY=""
   if [[ -s ~/.rvm/scripts/rvm ]] ; then 
-    RVM_PROMPT=$(~/.rvm/bin/rvm-prompt s)$(~/.rvm/bin/rvm-prompt)
+    RVM_PROMPT=$(~/.rvm/bin/rvm-prompt)
   else
     RVM_PROMPT=""
   fi
