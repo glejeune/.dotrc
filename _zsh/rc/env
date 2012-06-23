@@ -8,6 +8,11 @@ export SHELL
 export EDITOR=vim
 
 export PATH=/opt/bin:/usr/local/bin:/usr/local/sbin:~/bin:$PATH
+if [ -d ~/tools ] ; then
+  for i in $(find ~/tools -type d -name "bin") ; do
+    export PATH=$PATH:$i
+  done
+fi
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # Git
