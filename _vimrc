@@ -22,6 +22,7 @@ set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
+set foldmethod=syntax
 
 " use utf8 encoding for vim files and for default file encoding
 set encoding=utf-8

@@ -10,7 +10,6 @@ alias lla='ls -al'
 alias k='clear'
 
 alias week='ruby -e "require \"date\"; puts Date.commercial( Time.now.year, ARGV[0].to_i|1, 1 ).strftime( \"%d-%m-%Y\")"'
-alias winme='/Users/greg/bin/homebrew/bin/synergys -f --config /Users/greg/bin/synergy.conf'
 
 kolor () { highlight -l -A $@  | less -R }
 
@@ -39,3 +38,5 @@ alias mee='mvn exec:exec'
 alias tmux='TERM=screen-256color-bce tmux'
 
 alias valgrind='valgrind --dsymutil=yes'
+
+alias webserver='python -m SimpleHTTPServer'
