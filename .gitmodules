@@ -58,3 +58,7 @@
 	path = _vim/bundle/twitvim
 	url = git://github.com/vim-scripts/TwitVim.git
    ignore = dirty
+[submodule "_vim/bundle/vimerl"]
+	path = _vim/bundle/vimerl
+	url = git://github.com/jimenezrick/vimerl.git
+   ignore = dirty
