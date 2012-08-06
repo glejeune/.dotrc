@@ -60,5 +60,5 @@
    ignore = dirty
 [submodule "_vim/bundle/vimerl"]
 	path = _vim/bundle/vimerl
-	url = git://github.com/jimenezrick/vimerl.git
+	url = git://github.com/oscarh/vimerl.git
    ignore = dirty
