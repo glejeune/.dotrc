@@ -1,0 +1,64 @@
+# Virtualbox
+zshrc_load_status Virtualbox
+
+which vboxmanage > /dev/null
+if [[ 0 -eq $? ]]; then
+    #TODO : add zsh autocompletion support
+
+    _waitCommandEnd() {
+       vboxmanage  showvminfo  "$1" >/dev/null
+    }
+
+    _powerOff(){
+       vboxmanage controlvm "$1" poweroff
+       _waitCommandEnd "$1"
+    }
+
+    _restoreCurrent(){
+       vboxmanage snapshot "$1" restorecurrent
+       _waitCommandEnd "$1"
+    }
+
+    _startVm(){
+       vboxmanage startvm "$1"
+       _waitCommandEnd "$1"
+    }
+
+    vbox(){
+        cmd="${1:-usage}"
+        vmId="$2"
+        targetFile="$3"
+
+        case "$cmd" in
+           "usage" )
+              echo "usage :"
+              echo "  vbox usage : display this help"
+              echo "  vbox list : list VMs (and get their ID)"
+              echo "  vbox playagain <id> : power off, restore snapshot and start vm"
+              echo "  vbox start <id> : start vm"
+              echo "  vbox stop <id> : stop vm (power off)"
+              echo "  vbox export <id> [target] : export vm, defaults to box.ovf"
+              return 1
+              ;;
+           "list" )
+              vboxmanage list vms | sed 's/ {/ |{/' | column -t -s \|
+              ;;
+           "start" )
+              _startVm "$vmId" 
+              ;;
+           "playagain" )
+              _powerOff "$vmId"
+              _restoreCurrent "$vmId"
+              _startVm "$vmId"
+              ;;
+           "stop" )
+              _powerOff "$vmId"
+              ;;
+           "export" )
+              vboxmanage export "$vimId" --output "${targetFile:-box.ovf}"
+              ;;
+        esac
+        return $?
+    }
+
+fi
