@@ -4,13 +4,34 @@ zshrc_load_status Prompt
 autoload -U colors
 colors
 
+git_has_commit() {
+}
+
+git_has_line() {
+  git diff --numstat 2>/dev/null | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d/-%d\n", plus, minus)}'
+}
 git_prompt_info() {
+  git diff --quiet >/dev/null 2>&1
+  GD=$?
+  git diff --cached --quiet >/dev/null 2>&1
+  GDC=$?
+
   ref=""
   tag_name=$(git tag 2>/dev/null)
   branch_name=$(git symbolic-ref -q HEAD 2>/dev/null)
   branch_name=${branch_name##refs/heads/}
   if [ "Z$branch_name" != "Z" ]; then
-    ref=$branch_name
+    ref=""
+    has_commit=$(git rev-list --no-merges --count origin/${branch_name}..${branch_name} 2>/dev/null)
+    if [[ "$GD" -eq 1 || "$GDC" -eq "1" ]] ; then
+      has_line=$(git diff --numstat 2>/dev/null | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d/-%d\n", plus, minus)}')
+      if [[ "$has_commit" -gt "0" ]] ; then
+        ref=" ["$has_commit"|"$has_line"]"
+      else
+        ref=" ["$has_line"]"
+      fi
+    fi
+    ref=$branch_name$ref
   else
     if [ "Z$tag_name" != "Z" ]; then
       ref="TAG: "$tag_name
