@@ -1,0 +1,6 @@
+# From http://github.com/robbyrussell/oh-my-zsh
+zshrc_load_status Python
+
+[ -d $HOME/.virtualenvs ] || mkdir $HOME/.virtualenvs
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
