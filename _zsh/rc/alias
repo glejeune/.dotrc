@@ -25,7 +25,8 @@ alias ggpull='git pull origin $(current_branch)'
 alias ggpush='git push origin $(current_branch)'
 #compdef ggpush=git
 
-alias gl='git log --oneline --graph --decorate -20 --color'
+#alias gl='git log --oneline --graph --decorate -20 --color'
+alias gl='git log --graph -40 --color --decorate --pretty=format:"%C(yellow)%h%Creset %Cred%d%Creset %s %Cblue<%an>%Creset [%ar]"'
 alias gco='git checkout'
 #compdef gco=git
 
