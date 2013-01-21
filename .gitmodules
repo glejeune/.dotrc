@@ -62,3 +62,7 @@
 	path = _vim/bundle/vimerl
 	url = git://github.com/oscarh/vimerl.git
    ignore = dirty
+[submodule "_vim/bundle/python-mode"]
+	path = _vim/bundle/python-mode
+	url = git://github.com/klen/python-mode.git
+   ignore = dirty

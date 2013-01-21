@@ -126,6 +126,10 @@ noremap <F4> :DiffOrigToggle<CR>
 :set fdm=marker
 :set foldlevelstart=1000
 
+" python-mode
+let g:pymode_doc = 0
+let g:pymode_lint = 0
+
 " Set a nicer foldtext function
 set foldtext=MyFoldText()
 function! MyFoldText()
