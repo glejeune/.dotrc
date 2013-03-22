@@ -62,7 +62,3 @@
 	path = _vim/bundle/python-mode
 	url = git://github.com/klen/python-mode.git
    ignore = dirty
-[submodule "_vim/bundle/powerline"]
-	path = _vim/bundle/powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
-   ignore = dirty
