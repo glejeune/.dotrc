@@ -58,10 +58,6 @@
 	path = _vim/bundle/twitvim
 	url = git://github.com/vim-scripts/TwitVim.git
    ignore = dirty
-[submodule "_vim/bundle/vimerl"]
-	path = _vim/bundle/vimerl
-	url = git://github.com/oscarh/vimerl.git
-   ignore = dirty
 [submodule "_vim/bundle/python-mode"]
 	path = _vim/bundle/python-mode
 	url = git://github.com/klen/python-mode.git

@@ -128,7 +128,8 @@ noremap <F4> :DiffOrigToggle<CR>
 
 " python-mode
 let g:pymode_doc = 0
-let g:pymode_lint = 0
+let g:pymode_lint = 1
+let g:pymode_lint_ignore = "E501"
 
 " Set a nicer foldtext function
 set foldtext=MyFoldText()
