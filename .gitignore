@@ -1,3 +1,4 @@
-_zsh/rc/vidal
+_vim/bundle/powerline
 _vim/.netrwhis*
 *.swp
+.DS_Store
