@@ -16,6 +16,12 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'msanders/snipmate.vim'
 Bundle 'klen/python-mode'
 Bundle 'vim-scripts/L9'
+Bundle 'greyblake/vim-preview'
+Bundle 'vim-scripts/TailMinusF'
+Bundle 'mattn/calendar-vim'
+Bundle 'tpope/vim-commentary'
+Bundle 'majutsushi/tagbar'
+Bundle 'sjl/gundo.vim'
 
 set rtp+=~/.vim/_bundle/cscope
 set rtp+=~/.vim/_bundle/difftree

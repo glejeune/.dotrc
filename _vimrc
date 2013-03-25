@@ -67,6 +67,8 @@ nmap <leader><right> <C-W>L
 nmap <leader>$ <C-]> 
 nmap <leader><space> :nohlsearch<CR>
 
+nmap <leader>u :GundoToggle<CR>
+
 " Statusline
 set statusline=%f%m\ %{fugitive#statusline()}\ %y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ]\ %#warningmsg#\ %{SyntasticStatuslineFlag()}\ %* 
 set laststatus=2
@@ -103,6 +105,7 @@ nmap <C-Down> <C-f>
 " map nerdtree to F2
 let g:NERDTreeWinSize=45
 noremap <F2> :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeToggle<CR>
 
 " tagbar configuration
 let g:tagbar_width=45
