@@ -125,6 +125,10 @@ let g:pymode_doc = 0
 let g:pymode_lint = 1
 let g:pymode_lint_ignore = "E501"
 
+" vim-arduino
+au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.ino set filetype=arduino
+
 " Set a nicer foldtext function
 set foldtext=MyFoldText()
 function! MyFoldText()
