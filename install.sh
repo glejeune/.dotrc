@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 CURRENT_PATH=$(pwd)
 INSTALL_ROOT_PATH=$(cd $(dirname $0) && pwd)
@@ -6,17 +6,19 @@ TS=$(date +"%s")
 
 PLATFORM='unknown'
 _UNAMESTR=`uname`
-if [[ "$_UNAMESTR" == 'Linux' ]]; then
+if [ "$_UNAMESTR" == "Linux" ] ; then
   PLATFORM='linux'
-elif [[ "$_UNAMESTR" == 'Darwin' ]]; then
+elif [ "$_UNAMESTR" == "Darwin" ] ; then
   PLATFORM='darwin'
 fi
 
 install_powerline_fonts() {
-  cd $INSTALL_ROOT_PATH
-  git clone https://github.com/Lokaltog/powerline-fonts.git
-  find powerline-fonts -type f -iname "*.[o|t]tf" -exec cp {} ~/Library/Fonts \;
-  rm -rf powerline-fonts
+  if [ "$PLATFORM" == "darwin" ] ; then
+    cd $INSTALL_ROOT_PATH
+    git clone https://github.com/Lokaltog/powerline-fonts.git
+    find powerline-fonts -type f -iname "*.[o|t]tf" -exec cp {} ~/Library/Fonts \;
+    rm -rf powerline-fonts
+  fi
 }
 
 install_vundle() {
@@ -56,7 +58,7 @@ configure_gmail_for_mutt() {
   echo "** Gmail configuration :"
   echo ""
   OK=no
-  while [[ "$OK" != "yes" ]]; do
+  while [ "$OK" != "yes" ]; do
     echo -n "Your firstname : "; read FNAME
     echo -n "Your lastname : "; read LNAME
     echo -n "Your GMail login : "; read GLOGIN
@@ -68,7 +70,7 @@ configure_gmail_for_mutt() {
       GLOGIN=$(echo "$GLOGIN" | sed -e 's/@.*//')
     fi
     echo -n "It's good? [yes] : "; read OK
-    if [[ "Z$OK" == 'Z' ]]; then
+    if [ "Z$OK" == "Z" ]; then
       OK="yes"
     fi
   done
