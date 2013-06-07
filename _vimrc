@@ -180,3 +180,6 @@ set guioptions-=l
 let g:fuf_modesDisable=[]
 let g:slime_target = "tmux"
 set t_Co=256
+
+" vim-notes configuration
+let g:notes_directories = ['~/Dropbox/Shared Notes']
