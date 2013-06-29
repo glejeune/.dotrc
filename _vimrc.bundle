@@ -26,6 +26,10 @@ Bundle 'mileszs/ack.vim'
 Bundle 'tclem/vim-arduino'
 Bundle 'tpope/vim-abolish'
 Bundle 'jnwhiteh/vim-golang'
+" needed by vim-notes 
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-notes'
+Bundle 'elixir-lang/vim-elixir'
 
 set rtp+=~/.vim/_bundle/cscope
 set rtp+=~/.vim/_bundle/difftree
