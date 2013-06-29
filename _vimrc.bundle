@@ -25,6 +25,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'tclem/vim-arduino'
 Bundle 'tpope/vim-abolish'
+Bundle 'jnwhiteh/vim-golang'
 
 set rtp+=~/.vim/_bundle/cscope
 set rtp+=~/.vim/_bundle/difftree
