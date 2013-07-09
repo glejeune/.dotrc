@@ -21,7 +21,6 @@ if !exists('g:maven_mvn_bin')
    elseif executable('maven.exe')
       let g:maven_mvn_bin = 'maven.exe'
    else
-      echomsg 'Maven: mvn command not found, skipping plugin'
       finish
    endif
 else
