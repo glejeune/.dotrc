@@ -9,8 +9,8 @@ Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'Lokaltog/powerline'
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"Bundle 'Lokaltog/powerline'
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'msanders/snipmate.vim'
