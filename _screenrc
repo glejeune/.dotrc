@@ -1,39 +1,36 @@
-# Created by John Anderson < sontek@gmail.com >
-##    Explanation of hardstatus line    ##
+# GNU Screen - main configuration file
+# All other .screenrc files will source this file to inherit settings.
+# Author: Christian Wills - cwills.sys@gmail.com
 
-# Note the embeded space after the colon, I feel
-#  it just looks nicer with a blank between the
-#  text and console edge:
-#   '%{=b}%{G} Screens: '
+# Allow bold colors - necessary for some reason
+attrcolor b ".I"
 
-# This prints the window listing in blue:
-#   '%{b}%w'
+# Tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[49;5;%dm:AF=\E[38;5;%dm'
 
-# This right-aligns what follows:
-#   '%='
+# Enables use of shift-PgUp and shift-PgDn
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
 
-# This displays the time (hours and minutes) in 12hr format
-# and adds an AM/PM flag, in bold green:
-#   '%{G}%C%A'
+# Erase background with current bg color
+defbce "on"
 
-# This displays the day of the week:
-#   '%D'
+# Enable 256 color term
+term xterm-256color
 
-#This displays the date in Mon/day/year format:
-# and again I embeded a space to give me one space
-# between the text and console edge:
-#  '%M/%d/%Y '
+# Cache 30000 lines for scroll back
+defscrollback 30000
 
-# The resultsing command give you a status line that
-#  looks like this:
-#   | Screens: 0* bash  <blanks zapped>         5:30PM  Fri, Jun/25/2004 |
-#  (The pipes indicate the edges of the xterm/console).
+# New mail notification
+#backtick 101 30 15 $HOME/bin/mailstatus.sh
 
-# Green text, time, and date; windows in blue:
-hardstatus alwayslastline "%{=b}%{G} Screen(s): %{b}%w %=%{kG}%C%A  %D, %M/%d/%Y "
+hardstatus alwayslastline
+# Very nice tabbed colored hardstatus line
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
 
-# Turn off start message:
-startup_message off
+# change command character from ctrl-a to ctrl-b (emacs users may want this)
+#escape ^Bb
 
-# Set messages timeout to one second:
-msgwait 1
+# Hide hardstatus: ctrl-a f
+bind f eval "hardstatus ignore"
+# Show hardstatus: ctrl-a F
+bind F eval "hardstatus alwayslastline"
