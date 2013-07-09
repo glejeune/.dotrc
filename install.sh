@@ -62,6 +62,7 @@ create_symlinks() {
   save_and_link "_tmux.conf" ".tmux.conf"
   save_and_link "_ctags" ".ctags"
   save_and_link "_muttrc" ".muttrc"
+  save_and_link "_screenrc" ".screenrc"
 }
 
 configure_gmail_for_mutt() {
