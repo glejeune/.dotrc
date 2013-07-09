@@ -60,6 +60,8 @@ create_symlinks() {
   save_and_link "_vimrc" ".vimrc"
   save_and_link "_vimrc.bundle" ".vimrc.bundle"
   save_and_link "_tmux.conf" ".tmux.conf"
+  save_and_link "_tmux.macosx" ".tmux.macosx"
+  save_and_link "_tmux.linux" ".tmux.linux"
   save_and_link "_ctags" ".ctags"
   save_and_link "_muttrc" ".muttrc"
   save_and_link "_screenrc" ".screenrc"
