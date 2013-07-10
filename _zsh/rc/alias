@@ -2,7 +2,11 @@
 
 zshrc_load_status Alias
 
-alias ls='ls -G'
+if [[ "$(uname)" == "Linux" ]] ; then
+  alias ls='ls -G --color'
+else
+  alias ls='ls -G'
+fi
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'
