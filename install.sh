@@ -103,10 +103,19 @@ configure_mutt() {
   configure_gmail_for_mutt
 }
 
+install_local() {
+  cd ~
+  mkdir .zshrc.local
+  cd .zshrc.local
+  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+  echo "source $ZSHRC_LOCAL/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+}
+
 create_symlinks
 install_vundle
 install_powerline_fonts
 configure_mutt
+install_local
 cd $CURRENT_PATH
 
 echo ""

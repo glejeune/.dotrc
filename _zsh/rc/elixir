@@ -1,0 +1,22 @@
+zshrc_load_status Elixir
+
+_mix_does_task_list_need_generating () {
+  if [ ! -f .mix_tasks ]; then return 0;
+  else
+    accurate=$(stat -f%m .mix_tasks)
+    changed=$(stat -f%m mix.exs)
+    return $(expr $accurate '>=' $changed)
+  fi
+}
+
+__mix () {
+  if [ -f mix.exs ]; then
+    if _mix_does_task_list_need_generating; then
+      echo "\nGenerating .mix_tasks..." > /dev/stderr
+      mix help | cut -d " " -f 2 | grep -v "^$" > .mix_tasks
+    fi
+    compadd `cat .mix_tasks`
+  fi
+}
+
+_mix(){compadd `mix help|cut -d" " -f2|grep -v "^$"`};compdef _mix mix

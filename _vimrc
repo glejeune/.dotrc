@@ -40,9 +40,6 @@ set autoindent
 
 let mapleader = ","
 
-" TODO : search how to manipulate windows
-" Ctrl+w
-
 " TODO : remap Ctrl+V Ctrl+C Ctrl+X Ctrl+Z to their original mapping (see mswin.vim )
 " TODO : search how to use buffers 
 " TODO : display marks in buffers 
@@ -101,6 +98,10 @@ vmap <C-S-Down> xp`[V`]
 " Page Up/Down
 nmap <C-Up> <C-b>
 nmap <C-Down> <C-f>
+
+" Window
+noremap w <C-w>
+noremap W <C-w><C-w>
 
 " map nerdtree to F2
 let g:NERDTreeWinSize=45

@@ -2,6 +2,14 @@ zshrc_load_status () {
   echo "\r.zshrc load: $* ... \e[0K"
 }
 
+ZSHRC_PLATFORM='unknown'
+_UNAMESTR=$(uname)
+if [[ "$_UNAMESTR" == "Linux" ]] ; then
+  ZSHRC_PLATFORM='linux'
+elif [[ "$_UNAMESTR" == "Darwin" ]] ; then
+  ZSHRC_PLATFORM='darwin'
+fi
+
 fpath=(~/.zsh/functs $fpath)
 
 for file in ~/.zsh/rc/*; 
@@ -15,4 +23,5 @@ setopt autocd
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+export ZSHRC_LOCAL=~/.zshrc.local
+[ -d $ZSHRC_LOCAL ] && [ -f ~/.zshrc.local/zshrc ] && source ~/.zshrc.local/zshrc
