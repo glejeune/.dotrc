@@ -1,59 +1,35 @@
-#fichier ~/.muttrc
-
-#enregistre les messages envoyés et brouillons dans Gmail
-set record="+[Gmail]/Messages envoyés"
-set postponed="+[Gmail]/Brouillons"
-
-#configuration du serveur
-set hostname=gmail.com
 set use_envelope_from
 unignore Date Message-ID In-Reply-To
-
 set move=no
-set spoolfile=imaps://imap.gmail.com:993/INBOX
 
-set imap_authenticators="login"
-set imap_passive="no"
-set folder="imaps://imap.gmail.com:993"
-set imap_check_subscribed="yes"
-set imap_list_subscribed="yes"
+# .muttrc.accounts
+source ~/.muttrc.accounts
 
-source ~/.muttrc.gmail
-# my_hdr From: my_name <my_gmail_login@gmail.com>
-# set envelope_from_address="my_gmail_login@gmail.com"
-# set imap_user = "my_gmail_login@gmail.com"
-# set imap_pass= "my_gmail_password"
-# set smtp_url="smtps://my_gmail_login:my_gmail_password@smtp.gmail.com:465"
-
-set ssl_starttls="yes"
-
+# Locales
 set locale="fr_FR"
 set date_format="%A %d %b %Y à %H:%M:%S (%Z)"
 set attribution="Le %d, %n à écrit:"
 set forward_format="[Fwd: %s]"
 set forward_quote
 
-mailboxes !
-
 set pager_index_lines="7"
 set pager_stop
 
-#gérer un cache
-set header_cache="~/.mutt/cache/headers"
-set certificate_file="~/.mutt/certificates"
-set message_cachedir="~/.mutt/cache/bodies"
-
 # Répertoire de sauvegarde de attachements
 macro attach s "<save-entry><bol>~/Downloads/<eol>"
+
+# Status Bar -----------------------------------------
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
 set edit_hdrs
 #force l'utilisation d'un programme exterieur pour les mails en HTML
 auto_view text/html
 
 #et ici la config pour les contacts
-set query_command="goobook query '%s'"
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 bind editor <Tab> complete-query
-macro index,pager a "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
+bind editor ^T    complete
 
 # - Presentation
 set hdr_format="%4C %Z %{%d/%m/%Y} %15.15F (%4c) %s"
@@ -61,7 +37,52 @@ set hdr_format="%4C %Z %{%d/%m/%Y} %15.15F (%4c) %s"
 # Logique de tri primaire
 set sort = threads
 # Logique de tri secondaire
-set sort_aux = date-sent
+set sort_aux = reverse-last-date-received 
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# Index Key Bindings ---------------------------------
+bind index gg       first-entry
+bind index G        last-entry
+
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# Refresh IMAP
+bind index "^" imap-fetch-mail
+
+# Pager View Options ---------------------------------
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+# View HTML in default browser
+macro attach 'V' "<pipe-entry>cat >~/.mutt/cache/mail.html && open ~/.mutt/cache/mail.html<enter>"
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+# Pager Key Bindings ---------------------------------
+bind pager gg top
+bind pager G  bottom
+
+bind pager R  group-reply
+
+# View attachments properly.
+set mailcap_path="~/.mutt/mailcap"
+bind attach <return> view-mailcap
+
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
+
 # Ne pas marquer les messages reçus mais non lus comme « vieux » lorsqu'on
 # quitte Mutt.
 set mark_old = no

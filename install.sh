@@ -63,44 +63,8 @@ create_symlinks() {
   save_and_link "_tmux.macosx" ".tmux.macosx"
   save_and_link "_tmux.linux" ".tmux.linux"
   save_and_link "_ctags" ".ctags"
-  save_and_link "_muttrc" ".muttrc"
+  save_and_link "_urlview" ".urlview"
   save_and_link "_screenrc" ".screenrc"
-}
-
-configure_gmail_for_mutt() {
-  echo ""
-  echo "** Gmail configuration :"
-  echo ""
-  OK=no
-  while [ "$OK" != "yes" ]; do
-    echo -n "Your firstname : "; read FNAME
-    echo -n "Your lastname : "; read LNAME
-    echo -n "Your GMail login : "; read GLOGIN
-    echo -n "Your GMail password : "; read GPASS
-    if [ $(echo "$GLOGIN" | grep -c "@") -eq 0 ] ; then
-      GMAIL=$(echo "$GLOGIN@gmail.com")
-    else
-      GMAIL=$(echo "$GLOGIN")
-      GLOGIN=$(echo "$GLOGIN" | sed -e 's/@.*//')
-    fi
-    echo -n "It's good? [yes] : "; read OK
-    if [ "Z$OK" == "Z" ]; then
-      OK="yes"
-    fi
-  done
-
-  [ -e .muttrc.gmail ] && mv .muttrc.gmail .muttrc.gmail-save-$TS
-  echo "my_hdr From: $FNAME $LNAME <$GMAIL>" > .muttrc.gmail
-  echo "set envelope_from_address=\"$GMAIL\"" >> .muttrc.gmail
-  echo "set imap_user=\"$GMAIL\"" >> .muttrc.gmail
-  echo "set imap_pass=\"$GPASS\"" >> .muttrc.gmail
-  echo "set smtp_url=\"smtps://$GLOGIN:$GPASS@smtp.gmail.com:465\"" >> .muttrc.gmail
-}
-
-configure_mutt() {
-  cd ~
-  mkdir -p .mutt/cache/bodies
-  configure_gmail_for_mutt
 }
 
 install_local() {
@@ -108,13 +72,13 @@ install_local() {
   mkdir .zshrc.local
   cd .zshrc.local
   git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-  echo "source $ZSHRC_LOCAL/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  ZSHRC_LOCAL=$(pwd)
+  echo "source $ZSHRC_LOCAL/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" > zshrc
 }
 
 create_symlinks
 install_vundle
 install_powerline_fonts
-configure_mutt
 install_local
 cd $CURRENT_PATH
 
