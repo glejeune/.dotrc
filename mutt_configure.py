@@ -199,6 +199,7 @@ class MuttConfiguration:
         f.write('tls %s\n' % (self.smtp_tls))
         f.write('tls_nocertcheck\n')
         f.close()
+        os.chmod(self.msmtprc, 0600)
 
     def __write_muttrc_accounts(self):
         print(" > Update %s" % (self.muttrc_accounts))
@@ -225,17 +226,21 @@ class MuttConfiguration:
             maxsyncaccounts = maxsyncaccounts + 1
             config.set('general', 'maxsyncaccounts', maxsyncaccounts)
         else:
+            config.add_section('general')
             config.set('general', 'accounts', self.email)
             config.set('general', 'maxsyncaccounts', 1)
             config.set('general', 'socktimeout', 60)
             config.set('general', 'ui', 'TTY.TTYUI')
 
+        config.add_section('Account %s' % (self.email))
         config.set('Account %s' % (self.email), 'localrepository', '%s-local' % (self.email))
         config.set('Account %s' % (self.email), 'remoterepository', '%s-remote' % (self.email))
 
+        config.add_section('Repository %s-local' % (self.email))
         config.set('Repository %s-local' % (self.email), 'type', 'Maildir')
         config.set('Repository %s-local' % (self.email), 'localfolders', '~/Mail/%s' % (self.email))
 
+        config.add_section('Repository %s-remote' % (self.email))
         config.set('Repository %s-remote' % (self.email), 'type', 'IMAP')
         config.set('Repository %s-remote' % (self.email), 'remotehost', self.imap_server)
         if self.imap_port:
@@ -250,7 +255,7 @@ class MuttConfiguration:
         with open(self.offlineimaprc, 'wb') as configfile:
             config.write(configfile)
 
-    def __add_link(src, dst):
+    def __add_link(self, src, dst):
         makelink = True
         if os.path.exists(dst):
             print(" ! File %s exist!" % (src))
@@ -264,7 +269,7 @@ class MuttConfiguration:
         if makelink:
             os.symlink(src, dst)
 
-    def __copy_file(src, dst):
+    def __copy_file(self, src, dst):
         makecopy = True
         if os.path.exists(dst):
             print(" ! File %s exist!" % (src))
