@@ -5,6 +5,8 @@ set move=no
 # .muttrc.accounts
 source ~/.muttrc.accounts
 
+mailboxes !
+
 # Locales
 set locale="fr_FR"
 set date_format="%A %d %b %Y à %H:%M:%S (%Z)"
@@ -53,9 +55,6 @@ bind index <space>  collapse-thread
 # Saner copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
-
-# Refresh IMAP
-bind index "^" imap-fetch-mail
 
 # Pager View Options ---------------------------------
 set pager_index_lines = 10 # number of index lines to show
