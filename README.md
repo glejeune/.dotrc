@@ -8,3 +8,10 @@
     chmod +x install.sh
     ./install.sh
 
+### Dependencies
+
+* zsh
+* vim
+* mutt
+* offlineimap
+* msmtp
