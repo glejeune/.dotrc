@@ -184,3 +184,21 @@ set t_Co=256
 
 " vim-notes configuration
 let g:notes_directories = ['~/Dropbox/Shared Notes']
+
+" javascript-libraries-syntax.cim
+let g:used_javascript_libs = 'jquery,angularjs'
+
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
+
+" angularjs
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign with a Vim movement
+nmap <Leader>a <Plug>(EasyAlign)

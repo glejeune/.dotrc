@@ -33,6 +33,10 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'rodjek/vim-puppet'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
+Bundle 'jimenezrick/vimerl'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'junegunn/vim-easy-align'
+Bundle 'lfe/vim-lfe'
 
 set rtp+=~/.vim/_bundle/cscope
 set rtp+=~/.vim/_bundle/difftree
