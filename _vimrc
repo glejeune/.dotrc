@@ -7,7 +7,7 @@ let s:langCode = has('win32') ? 'en' : 'en_US.UTF-8'
 let &langmenu = s:langCode
 execute 'language message '.s:langCode
 
-" enable syntax coloring for solarized
+" enable syntax coloring
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
@@ -83,12 +83,10 @@ nmap <leader>u :GundoToggle<CR>
 " 
 " au InsertEnter * call InsertStatuslineColor(v:insertmode)
 " au InsertLeave * hi StatusLine term=reverse ctermfg=darkgreen
-set encoding=utf8
-set termencoding=utf8
-let g:Powerline_symbols='unicode'
-set t_Co=256
+" -> powerline
+let g:Powerline_symbols = 'unicode'
 set laststatus=2
-set noshowmode
+set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 
 " search
@@ -191,3 +189,21 @@ set t_Co=256
 
 " vim-notes configuration
 let g:notes_directories = ['~/Dropbox/Shared Notes']
+
+" javascript-libraries-syntax.cim
+let g:used_javascript_libs = 'jquery,angularjs'
+
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
+
+" angularjs
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign with a Vim movement
+nmap <Leader>a <Plug>(EasyAlign)
