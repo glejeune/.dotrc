@@ -9,8 +9,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
-"Bundle 'Lokaltog/powerline'
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+Bundle 'Lokaltog/powerline', { "rtp": "powerline/bindings/vim" } 
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'msanders/snipmate.vim'
@@ -33,6 +32,7 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'rodjek/vim-puppet'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
+"Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 
 set rtp+=~/.vim/_bundle/cscope
 set rtp+=~/.vim/_bundle/difftree

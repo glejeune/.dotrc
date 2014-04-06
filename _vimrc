@@ -7,7 +7,7 @@ let s:langCode = has('win32') ? 'en' : 'en_US.UTF-8'
 let &langmenu = s:langCode
 execute 'language message '.s:langCode
 
-" enable syntax coloring
+" enable syntax coloring for solarized
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
@@ -67,22 +67,29 @@ nmap <leader><space> :nohlsearch<CR>
 nmap <leader>u :GundoToggle<CR>
 
 " Statusline
-set statusline=%f%m\ %{fugitive#statusline()}\ %y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ]\ %#warningmsg#\ %{SyntasticStatuslineFlag()}\ %* 
+" set statusline=%f%m\ %{fugitive#statusline()}\ %y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ]\ %#warningmsg#\ %{SyntasticStatuslineFlag()}\ %* 
+" set laststatus=2
+" hi StatusLine ctermfg=darkgreen
+" hi StatusLineNC cterm=none 
+" function! InsertStatuslineColor(mode)
+"    if a:mode == 'i'
+"       hi StatusLine term=reverse ctermfg=darkred
+"    elseif a:mode == 'r'
+"       hi StatusLine term=reverse ctermfg=darkmagenta
+"    else
+"       hi StatusLine term=reverse ctermfg=darkblue
+"    endif
+" endfunction
+" 
+" au InsertEnter * call InsertStatuslineColor(v:insertmode)
+" au InsertLeave * hi StatusLine term=reverse ctermfg=darkgreen
+set encoding=utf8
+set termencoding=utf8
+let g:Powerline_symbols='unicode'
+set t_Co=256
 set laststatus=2
-hi StatusLine ctermfg=darkgreen
-hi StatusLineNC cterm=none 
-function! InsertStatuslineColor(mode)
-   if a:mode == 'i'
-      hi StatusLine term=reverse ctermfg=darkred
-   elseif a:mode == 'r'
-      hi StatusLine term=reverse ctermfg=darkmagenta
-   else
-      hi StatusLine term=reverse ctermfg=darkblue
-   endif
-endfunction
-
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi StatusLine term=reverse ctermfg=darkgreen
+set noshowmode
+set fillchars+=stl:\ ,stlnc:\
 
 " search
 set hlsearch
