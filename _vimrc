@@ -67,22 +67,27 @@ nmap <leader><space> :nohlsearch<CR>
 nmap <leader>u :GundoToggle<CR>
 
 " Statusline
-set statusline=%f%m\ %{fugitive#statusline()}\ %y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ]\ %#warningmsg#\ %{SyntasticStatuslineFlag()}\ %* 
+" set statusline=%f%m\ %{fugitive#statusline()}\ %y\ [POS=%l,%v]\ %=[\ %{strftime(\"%H:%M:%S\")}\ ]\ %#warningmsg#\ %{SyntasticStatuslineFlag()}\ %* 
+" set laststatus=2
+" hi StatusLine ctermfg=darkgreen
+" hi StatusLineNC cterm=none 
+" function! InsertStatuslineColor(mode)
+"    if a:mode == 'i'
+"       hi StatusLine term=reverse ctermfg=darkred
+"    elseif a:mode == 'r'
+"       hi StatusLine term=reverse ctermfg=darkmagenta
+"    else
+"       hi StatusLine term=reverse ctermfg=darkblue
+"    endif
+" endfunction
+" 
+" au InsertEnter * call InsertStatuslineColor(v:insertmode)
+" au InsertLeave * hi StatusLine term=reverse ctermfg=darkgreen
+" -> powerline
+let g:Powerline_symbols = 'unicode'
 set laststatus=2
-hi StatusLine ctermfg=darkgreen
-hi StatusLineNC cterm=none 
-function! InsertStatuslineColor(mode)
-   if a:mode == 'i'
-      hi StatusLine term=reverse ctermfg=darkred
-   elseif a:mode == 'r'
-      hi StatusLine term=reverse ctermfg=darkmagenta
-   else
-      hi StatusLine term=reverse ctermfg=darkblue
-   endif
-endfunction
-
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi StatusLine term=reverse ctermfg=darkgreen
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
 
 " search
 set hlsearch
