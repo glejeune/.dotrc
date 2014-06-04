@@ -36,6 +36,7 @@ Bundle 'jimenezrick/vimerl'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'lfe/vim-lfe'
+Bundle 'kien/ctrlp.vim'
 
 set rtp+=~/.vim/_bundle/cscope
 set rtp+=~/.vim/_bundle/difftree

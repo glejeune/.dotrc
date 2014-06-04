@@ -5,4 +5,3 @@ zshrc_load_status Java
 M2_REPO=~/.m2/repository
 MAVEN_OPTS=-Xmx1024m
 
-alias bsh='java -cp ~/.zsh/rc/ext/bsh-2.0b4.jar bsh.Interpreter'

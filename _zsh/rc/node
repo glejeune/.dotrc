@@ -1,4 +1,0 @@
-# Set up options... 
-zshrc_load_status Node.js
-
-export NODE_PATH=/usr/local/lib/node_modules
