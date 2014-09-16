@@ -25,9 +25,7 @@ install_powerline_fonts() {
     mkdir -p ~/.fonts
     mv PowerlineSymbols.otf ~/.fonts
     fc-cache -vf ~/.fonts 
-    mkdir -p ~/.fonts.conf.d/
     mkdir -p ~/.config/fontconfig/conf.d/
-    cp 10-powerline-symbols.conf ~/.fonts.conf.d/
     mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
   fi
 }
