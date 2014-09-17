@@ -18,7 +18,7 @@ set pager_index_lines="7"
 set pager_stop
 
 # Répertoire de sauvegarde de attachements
-macro attach s "<save-entry><bol>~/Downloads/<eol>"
+macro attach s "<save-entry><bol>~/Téléchargements/<eol>"
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
@@ -65,7 +65,7 @@ set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
 
 # View HTML in default browser
-macro attach 'V' "<pipe-entry>cat >~/.mutt/cache/mail.html && open ~/.mutt/cache/mail.html<enter>"
+macro attach 'V' "<pipe-entry>cat >~/.mutt/cache/mail.html && xdg-open ~/.mutt/cache/mail.html<enter>"
 
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 alternative_order text/plain text/enriched text/html

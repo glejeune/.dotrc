@@ -56,6 +56,19 @@
 # See Also:  The man pages for open, file, basename
 #
 
+OPEN=open
+case $(uname) in
+  Linux) 
+    OPEN=xdg-open 
+    ;;
+  Darwin) 
+    OPEN=open 
+    ;;
+  *) 
+    exit
+    ;;
+esac
+
 # the tmp directory to use.
 tmpdir="$HOME/.tmp/mutt_attach"
 
@@ -121,7 +134,7 @@ fi
 # Otherwise we've been told what to use.  So do an open -a.
 
 if [ -z $open_with ]; then
-    open $newfile
+    $OPEN $newfile
 else
-    open -a "$open_with" $newfile
+    "$open_with" $newfile
 fi
