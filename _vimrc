@@ -13,7 +13,6 @@ set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
-set foldmethod=syntax
 
 " use utf8 encoding for vim files and for default file encoding
 set encoding=utf-8
@@ -122,9 +121,14 @@ noremap <F3> :TagbarToggle<CR>
 noremap <F4> :DiffOrigToggle<CR>
 
 "  Set folding stuff
-:set fmr={,}
-:set fdm=marker
-:set foldlevelstart=1000
+" set foldmethod=syntax
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+":set fmr={,}
+":set fdm=marker
+":set foldlevelstart=1000
 
 " python-mode
 let g:pymode_doc = 0
@@ -136,40 +140,40 @@ au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 
 " Set a nicer foldtext function
-set foldtext=MyFoldText()
-function! MyFoldText()
-  let line = getline(v:foldstart)
-  if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-    let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-    let linenum = v:foldstart + 1
-    while linenum < v:foldend
-      let line = getline( linenum )
-      let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-      if comment_content != ''
-        break
-      endif
-      let linenum = linenum + 1
-    endwhile
-    let sub = initial . ' ' . comment_content
-  else
-    let sub = line
-    let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-    if startbrace == '{'
-      let line = getline(v:foldend)
-      let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-      if endbrace == '}'
-        let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-      endif
-    endif
-  endif
-  let n = v:foldend - v:foldstart + 1
-  let info = " " . n . " lines"
-  let sub = sub . "                                                                                                                  "
-  let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
-  let fold_w = getwinvar( 0, '&foldcolumn' )
-  let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
-  return sub . info
-endfunction
+"" set foldtext=MyFoldText()
+"" function! MyFoldText()
+""   let line = getline(v:foldstart)
+""   if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
+""     let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+""     let linenum = v:foldstart + 1
+""     while linenum < v:foldend
+""       let line = getline( linenum )
+""       let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+""       if comment_content != ''
+""         break
+""       endif
+""       let linenum = linenum + 1
+""     endwhile
+""     let sub = initial . ' ' . comment_content
+""   else
+""     let sub = line
+""     let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+""     if startbrace == '{'
+""       let line = getline(v:foldend)
+""       let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+""       if endbrace == '}'
+""         let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+""       endif
+""     endif
+""   endif
+""   let n = v:foldend - v:foldstart + 1
+""   let info = " " . n . " lines"
+""   let sub = sub . "                                                                                                                  "
+""   let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
+""   let fold_w = getwinvar( 0, '&foldcolumn' )
+""   let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
+""   return sub . info
+"" endfunction
 
 " GUI options OFF
 " remove gui icons bar
@@ -207,3 +211,9 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign with a Vim movement
 nmap <Leader>a <Plug>(EasyAlign)
+
+let g:erlangRefactoring = 1
+let g:erlangWranglerPath = '/home/greg/temp/wrangler'
+let g:erlCallPath = '/home/greg/.kerl/installations/17.3-wx/lib/erl_interface-3.7.18/bin/erl_call'
+
+let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*.wsz,*.xap,*.docx,*.docm,*.dotx,*.dotm,*.potx,*.potm,*.ppsx,*.ppsm,*.pptx,*.pptm,*.ppam,*.sldx,*.thmx,*.crtx,*.vdw,*.glox,*.gcsx,*.gqsx'

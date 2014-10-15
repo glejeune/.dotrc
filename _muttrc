@@ -13,6 +13,8 @@ set date_format="%A %d %b %Y à %H:%M:%S (%Z)"
 set attribution="Le %d, %n à écrit:"
 set forward_format="[Fwd: %s]"
 set forward_quote
+set mime_forward=yes 
+set mime_forward_rest=yes
 
 set pager_index_lines="7"
 set pager_stop
