@@ -35,9 +35,10 @@ install_vundle() {
   mv .vimrc .vimrc.keep
   mv .vimrc.bundle .vimrc
   cd $INSTALL_ROOT_PATH
+  [ -e "_vim/bundle" ] && rm -rf _vim/bundle
   mkdir -p _vim/bundle
-  [ -e "_vim/bundle/vundle" ] || git clone https://github.com/gmarik/vundle.git _vim/bundle/vundle
-  vim +BundleInstall +qall
+  [ -e "_vim/bundle/neobundle.vim" ] || git clone https://github.com/Shougo/neobundle.vim _vim/bundle/neobundle.vim
+  vim +NeoBundleInstall +qall
   cd ~
   mv .vimrc .vimrc.bundle
   mv .vimrc.keep .vimrc

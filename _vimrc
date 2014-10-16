@@ -216,4 +216,3 @@ let g:erlangRefactoring = 1
 let g:erlangWranglerPath = '/home/greg/temp/wrangler'
 let g:erlCallPath = '/home/greg/.kerl/installations/17.3-wx/lib/erl_interface-3.7.18/bin/erl_call'
 
-let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*.wsz,*.xap,*.docx,*.docm,*.dotx,*.dotm,*.potx,*.potm,*.ppsx,*.ppsm,*.pptx,*.pptm,*.ppam,*.sldx,*.thmx,*.crtx,*.vdw,*.glox,*.gcsx,*.gqsx'
