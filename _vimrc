@@ -212,7 +212,7 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign with a Vim movement
 nmap <Leader>a <Plug>(EasyAlign)
 
-let g:erlangRefactoring = 1
+let g:erlangRefactoring = 0
 let g:erlangWranglerPath = '/home/greg/temp/wrangler'
 let g:erlCallPath = '/home/greg/.kerl/installations/17.3-wx/lib/erl_interface-3.7.18/bin/erl_call'
 
