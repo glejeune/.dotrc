@@ -127,7 +127,7 @@ class MuttConfiguration:
             self.imap_use_ssl = "Y"
         if self.imap_use_ssl in ["Y", "y", "O", "o", "yes", "oui"]:
             self.imap_use_ssl = "yes"
-            self.imap_cert_fingerprint = raw_input(" * IMAP SHA1 of server certificate : ")
+            #self.imap_cert_fingerprint = raw_input(" * IMAP SHA1 of server certificate : ")
         else:
             self.imap_use_ssl = "no"
 
@@ -249,7 +249,8 @@ class MuttConfiguration:
         config.set('Repository %s-remote' % (self.email), 'remotepass', self.imap_password)
         config.set('Repository %s-remote' % (self.email), 'ssl', self.imap_use_ssl)
         if self.imap_use_ssl == "yes":
-            config.set('Repository %s-remote' % (self.email), 'cert_fingerprint', self.imap_cert_fingerprint)
+            # config.set('Repository %s-remote' % (self.email), 'cert_fingerprint', self.imap_cert_fingerprint)
+            config.set('Repository %s-remote' % (self.email), 'sslcacertfile', '/etc/ssl/certs/ca-certificates.crt')
         config.set('Repository %s-remote' % (self.email), 'realdelete', 'no')
 
         with open(self.offlineimaprc, 'wb') as configfile:
