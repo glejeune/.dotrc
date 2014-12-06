@@ -144,3 +144,7 @@ color underline  cyan           default # hiliting underlined patterns in body
 color index     green          default  ~T      # Tagged
 color index     red            default  ~D      # Deleted
 
+# - GPG
+
+source ~/.dotrc/mutt-gpg.rc
+source ~/.mutt/muttrc.local

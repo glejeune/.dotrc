@@ -38,6 +38,7 @@ set shiftwidth=2
 set autoindent
 
 let mapleader = ","
+let maplocalleader = ";"
 
 " TODO : remap Ctrl+V Ctrl+C Ctrl+X Ctrl+Z to their original mapping (see mswin.vim )
 " TODO : search how to use buffers 

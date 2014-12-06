@@ -24,7 +24,7 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'tclem/vim-arduino'
 NeoBundle 'tpope/vim-abolish'
-NeoBundle 'jnwhiteh/vim-golang'
+NeoBundle 'fatih/vim-go'
 " needed by vim-notes 
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-notes'
@@ -47,6 +47,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'rhysd/open-pdf.vim'
+NeoBundle 'sjl/threesome.vim'
 
 call neobundle#end()
 
