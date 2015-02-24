@@ -60,7 +60,7 @@ precmd () {
   if [[ -s ~/.rvm/scripts/rvm ]] ; then 
     RUBY_VERSION_PROMPT=$(~/.rvm/bin/rvm-prompt)
   elif [[ -s ~/.rbenv/bin/rbenv ]] ; then
-    RUBY_VERSION_PROMPT=$(~/.rbenv/bin/rbenv version | sed -e 's/\s*(.*$//')
+    RUBY_VERSION_PROMPT=$(~/.rbenv/bin/rbenv global)
   else
     RUBY_VERSION_PROMPT=""
   fi
