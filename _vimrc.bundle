@@ -47,7 +47,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'rhysd/open-pdf.vim'
-NeoBundle 'sjl/threesome.vim'
+NeoBundle 'sjl/splice.vim'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'kchmck/vim-coffee-script'
 
 call neobundle#end()
 

@@ -21,7 +21,5 @@ done
 
 setopt autocd
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 export ZSHRC_LOCAL=~/.zshrc.local
 [ -d $ZSHRC_LOCAL ] && [ -f ~/.zshrc.local/zshrc ] && source ~/.zshrc.local/zshrc

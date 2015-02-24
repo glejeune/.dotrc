@@ -58,11 +58,13 @@ precmd () {
   #BATTERY=$(ioreg -l | grep -i capacity | tr '\n' ' | ' | awk '{printf("%.2f", $10/$5 * 100)}')
   PY_VENV=$(cdvirtualenv 2>/dev/null && pwd | awk -F"/" '{print $NF}')
   if [[ -s ~/.rvm/scripts/rvm ]] ; then 
-    RVM_PROMPT=$(~/.rvm/bin/rvm-prompt)
+    RUBY_VERSION_PROMPT=$(~/.rvm/bin/rvm-prompt)
+  elif [[ -s ~/.rbenv/bin/rbenv ]] ; then
+    RUBY_VERSION_PROMPT=$(~/.rbenv/bin/rbenv version | sed -e 's/\s*(.*$//')
   else
-    RVM_PROMPT=""
+    RUBY_VERSION_PROMPT=""
   fi
-  LEFT=`echo "-("$USER_NAME"@"$HOST_NAME":"$PY_VENV":"$RVM_PROMPT")-"`
+  LEFT=`echo "-("$USER_NAME"@"$HOST_NAME":"$PY_VENV":"$RUBY_VERSION_PROMPT")-"`
   let LEFT_SIZE=`echo -n $LEFT | wc -c | tr -d " "`
 
   let GIT_PROMPT_SIZE=`echo $(git_prompt_info) | wc -c | tr -d " "`
@@ -87,7 +89,7 @@ precmd () {
       let FILL_SIZE=${FILL_SIZE}-1
   done 
   
-  LEFT=`echo "-(%{$fg[blue]%}"$USER_NAME"%{$fg[green]%}%b@%B%{$fg[blue]%}"$HOST_NAME"%{$fg[green]%}%b:%{$fg[yellow]%}"$PY_VENV"%b:%B%{$fg[yellow]%}"$RVM_PROMPT"%{$fg[green]%})-"`
+  LEFT=`echo "-(%{$fg[blue]%}"$USER_NAME"%{$fg[green]%}%b@%B%{$fg[blue]%}"$HOST_NAME"%{$fg[green]%}%b:%{$fg[yellow]%}"$PY_VENV"%b:%B%{$fg[yellow]%}"$RUBY_VERSION_PROMPT"%{$fg[green]%})-"`
   if [ "$GIT_PROMPT_SIZE" -eq "0" ] ; then
   	RIGHT=`echo "-("$DIR"%{$fg[red]%}"$(git_prompt_info)""%{$fg[green]%}")-"`
   else

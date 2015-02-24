@@ -2,7 +2,7 @@
 	name = glejeune
 	email = gregoire.lejeune@free.fr
 [merge]
-  tool = threesome
-[mergetool "threesome"]
-  cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+  tool = meld # splice # meld
+[mergetool "splice"]
+  cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
   trustExitCode = true
