@@ -50,6 +50,7 @@ NeoBundle 'rhysd/open-pdf.vim'
 NeoBundle 'sjl/splice.vim'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'airblade/vim-gitgutter'
 
 call neobundle#end()
 
