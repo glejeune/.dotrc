@@ -23,3 +23,4 @@ setopt autocd
 
 export ZSHRC_LOCAL=~/.zshrc.local
 [ -d $ZSHRC_LOCAL ] && [ -f ~/.zshrc.local/zshrc ] && source ~/.zshrc.local/zshrc
+

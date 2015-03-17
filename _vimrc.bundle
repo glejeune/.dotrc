@@ -51,6 +51,9 @@ NeoBundle 'sjl/splice.vim'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'mcandre/Conque-Shell'
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'adimit/prolog.vim'
 
 call neobundle#end()
 
