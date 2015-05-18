@@ -54,6 +54,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'mcandre/Conque-Shell'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'adimit/prolog.vim'
+NeoBundle 'dsawardekar/ember.vim'
 
 call neobundle#end()
 

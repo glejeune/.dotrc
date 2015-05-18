@@ -140,42 +140,6 @@ let g:pymode_lint_ignore = "E501"
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 
-" Set a nicer foldtext function
-"" set foldtext=MyFoldText()
-"" function! MyFoldText()
-""   let line = getline(v:foldstart)
-""   if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-""     let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-""     let linenum = v:foldstart + 1
-""     while linenum < v:foldend
-""       let line = getline( linenum )
-""       let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-""       if comment_content != ''
-""         break
-""       endif
-""       let linenum = linenum + 1
-""     endwhile
-""     let sub = initial . ' ' . comment_content
-""   else
-""     let sub = line
-""     let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-""     if startbrace == '{'
-""       let line = getline(v:foldend)
-""       let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-""       if endbrace == '}'
-""         let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-""       endif
-""     endif
-""   endif
-""   let n = v:foldend - v:foldstart + 1
-""   let info = " " . n . " lines"
-""   let sub = sub . "                                                                                                                  "
-""   let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
-""   let fold_w = getwinvar( 0, '&foldcolumn' )
-""   let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
-""   return sub . info
-"" endfunction
-
 " GUI options OFF
 " remove gui icons bar
 set guioptions-=T
@@ -216,4 +180,40 @@ nmap <Leader>a <Plug>(EasyAlign)
 let g:erlangRefactoring = 0
 let g:erlangWranglerPath = '/home/greg/temp/wrangler'
 let g:erlCallPath = '/home/greg/.kerl/installations/17.3-wx/lib/erl_interface-3.7.18/bin/erl_call'
+
+command! -nargs=? -range Dec2hex call s:Dec2hex(<line1>, <line2>, '<args>')
+function! s:Dec2hex(line1, line2, arg) range
+  if empty(a:arg)
+    if histget(':', -1) =~# "^'<,'>" && visualmode() !=# 'V'
+      let cmd = 's/\%V\<\d\+\>/\=printf("0x%x",submatch(0)+0)/g'
+    else
+      let cmd = 's/\<\d\+\>/\=printf("0x%x",submatch(0)+0)/g'
+    endif
+    try
+      execute a:line1 . ',' . a:line2 . cmd
+    catch
+      echo 'Error: No decimal number found'
+    endtry
+  else
+    echo printf('%x', a:arg + 0)
+  endif
+endfunction
+
+command! -nargs=? -range Hex2dec call s:Hex2dec(<line1>, <line2>, '<args>')
+function! s:Hex2dec(line1, line2, arg) range
+  if empty(a:arg)
+    if histget(':', -1) =~# "^'<,'>" && visualmode() !=# 'V'
+      let cmd = 's/\%V0x\x\+/\=submatch(0)+0/g'
+    else
+      let cmd = 's/0x\x\+/\=submatch(0)+0/g'
+    endif
+    try
+      execute a:line1 . ',' . a:line2 . cmd
+    catch
+      echo 'Error: No hex number starting "0x" found'
+    endtry
+  else
+    echo (a:arg =~? '^0x') ? a:arg + 0 : ('0x'.a:arg) + 0
+  endif
+endfunction
 
