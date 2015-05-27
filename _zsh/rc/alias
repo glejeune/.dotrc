@@ -11,7 +11,7 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'
 
-alias k='clear'
+alias cl='clear'
 
 alias week='ruby -e "require \"date\"; puts Date.commercial( Time.now.year, ARGV[0].to_i|1, 1 ).strftime( \"%d-%m-%Y\")"'
 
