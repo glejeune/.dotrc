@@ -36,7 +36,7 @@ NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'lfe/vim-lfe'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'yakiang/excel.vim'
+NeoBundle 'ryanmorillo/excel.vim'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
