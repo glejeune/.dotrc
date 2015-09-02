@@ -2,6 +2,9 @@ zshrc_load_status () {
   echo "\r.zshrc load: $* ... \e[0K"
 }
 
+export ZSHRC_LOCAL=~/.zshrc.local
+[ -d $ZSHRC_LOCAL ] && [ -f ~/.zshrc.local/zshrc ] && source ~/.zshrc.local/zshrc
+
 ZSHRC_PLATFORM='unknown'
 _UNAMESTR=$(uname)
 if [[ "$_UNAMESTR" == "Linux" ]] ; then
@@ -20,7 +23,4 @@ done
 [ -f /usr/bin/dircolors ] && eval `dircolors ~/.zsh/dircolors.gen`
 
 setopt autocd
-
-export ZSHRC_LOCAL=~/.zshrc.local
-[ -d $ZSHRC_LOCAL ] && [ -f ~/.zshrc.local/zshrc ] && source ~/.zshrc.local/zshrc
 
