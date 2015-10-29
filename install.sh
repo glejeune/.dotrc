@@ -78,10 +78,19 @@ install_local() {
   echo "source $ZSHRC_LOCAL/k/k.sh" >> zshrc
 }
 
+install_wrangler() {
+  mkdir -p ~/bin
+  git clone https://github.com/RefactoringTools/wrangler ~/bin/wrangler
+  cd ~/bin/wrangler
+  ./configure
+  make
+}
+
 create_symlinks
 install_vundle
 install_powerline_fonts
 install_local
+install_wrangler
 cd $CURRENT_PATH
 
 echo ""

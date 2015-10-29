@@ -177,10 +177,6 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign with a Vim movement
 nmap <Leader>a <Plug>(EasyAlign)
 
-let g:erlangRefactoring = 0
-let g:erlangWranglerPath = '/home/greg/temp/wrangler'
-let g:erlCallPath = '/home/greg/.kerl/installations/17.3-wx/lib/erl_interface-3.7.18/bin/erl_call'
-
 command! -nargs=? -range Dec2hex call s:Dec2hex(<line1>, <line2>, '<args>')
 function! s:Dec2hex(line1, line2, arg) range
   if empty(a:arg)
@@ -216,4 +212,16 @@ function! s:Hex2dec(line1, line2, arg) range
     echo (a:arg =~? '^0x') ? a:arg + 0 : ('0x'.a:arg) + 0
   endif
 endfunction
+
+"set path to wrangler directory
+let g:erlangWranglerPath = '~/bin/wrangler'
+
+"sample wrangler bindings
+autocmd FileType erlang vnoremap <leader>e :WranglerExtractFunction<ENTER>
+autocmd FileType erlang noremap  <leader>m :WranglerRenameModule<ENTER>
+autocmd FileType erlang noremap  <leader>f :WranglerRenameFunction<ENTER>
+autocmd FileType erlang noremap  <leader>v :WranglerRenameVariable<ENTER>
+autocmd FileType erlang noremap  <leader>p :WranglerRenameProcess<ENTER>
+autocmd FileType erlang noremap  <leader>mv :WranglerMoveFunction<ENTER>
+autocmd FileType erlang noremap  <leader>u :WranglerUndo<ENTER>
 
