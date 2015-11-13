@@ -140,6 +140,10 @@ let g:pymode_lint_ignore = "E501"
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 
+" TaskJuggler
+au BufRead,BufNewFile *.tjp set filetype=taskjuggler
+au BufRead,BufNewFile *.tji set filetype=taskjuggler
+
 " GUI options OFF
 " remove gui icons bar
 set guioptions-=T

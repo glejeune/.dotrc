@@ -75,6 +75,7 @@ set rtp+=~/.vim/_bundle/maven
 set rtp+=~/.vim/_bundle/tools
 set rtp+=~/.vim/_bundle/vconsole
 set rtp+=~/.vim/_bundle/arduino
+set rtp+=~/.vim/_bundle/taskjuggler
 set rtp+=~/.vim/_bundle/wrangler
 
 
