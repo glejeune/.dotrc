@@ -20,7 +20,7 @@ set pager_index_lines="7"
 set pager_stop
 
 # Répertoire de sauvegarde de attachements
-macro attach s "<save-entry><bol>~/Téléchargements/<eol>"
+macro attach s "<save-entry><bol>~/Downloads/<eol>"
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"

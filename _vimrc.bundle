@@ -62,6 +62,15 @@ NeoBundle 'mcandre/Conque-Shell'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'adimit/prolog.vim'
 NeoBundle 'dsawardekar/ember.vim'
+NeoBundle 'fsharp/vim-fsharp', {
+\   'description': 'F# support for Vim',
+\   'lazy': 1,
+\   'autoload': {'filetypes': 'fsharp'},
+\   'build': {
+\     'unix':  'make fsautocomplete',
+\   },
+\   'build_commands': ['curl', 'make', 'mozroots', 'touch', 'unzip'],
+\ }
 
 call neobundle#end()
 

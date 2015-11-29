@@ -230,7 +230,7 @@ class MuttConfiguration:
             config.set('general', 'accounts', self.email)
             config.set('general', 'maxsyncaccounts', 1)
             config.set('general', 'socktimeout', 60)
-            config.set('general', 'ui', 'TTY.TTYUI')
+            config.set('general', 'ui', 'basic')
 
         config.add_section('Account %s' % (self.email))
         config.set('Account %s' % (self.email), 'localrepository', '%s-local' % (self.email))
