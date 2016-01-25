@@ -229,3 +229,5 @@ autocmd FileType erlang noremap  <leader>p :WranglerRenameProcess<ENTER>
 autocmd FileType erlang noremap  <leader>mv :WranglerMoveFunction<ENTER>
 autocmd FileType erlang noremap  <leader>u :WranglerUndo<ENTER>
 
+let g:snips_author = "Gregoire Lejeune"
+let g:my_email_addr = "gregoire.lejeune@gmail.com"
