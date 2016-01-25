@@ -8,6 +8,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'junegunn/gv.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/powerline', { "rtp": "powerline/bindings/vim" }
 NeoBundle 'scrooloose/syntastic'
@@ -71,6 +72,17 @@ NeoBundle 'fsharp/vim-fsharp', {
 \   },
 \   'build_commands': ['curl', 'make', 'mozroots', 'touch', 'unzip'],
 \ }
+NeoBundle 'cespare/vim-toml'
+NeoBundle 'liquidz/vivi.vim', {
+\ 'depends': [
+\   'elixir-lang/vim-elixir',
+\   'Shougo/vimproc.vim',
+\   'Shougo/neocomplete.vim',
+\   'thinca/vim-quickrun',
+\   'thinca/vim-ref',
+\   'osyo-manga/shabadou.vim',
+\   'osyo-manga/vim-watchdogs'
+\ ]}
 
 call neobundle#end()
 

@@ -65,6 +65,7 @@ create_symlinks() {
   save_and_link "_urlview" ".urlview"
   save_and_link "_screenrc" ".screenrc"
   save_and_link "_gitconfig" ".gitconfig"
+  save_and_link "_editorconfig" ".editorconfig"
 }
 
 install_local() {
