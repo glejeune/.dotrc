@@ -35,8 +35,8 @@ alias gco='git checkout'
 #compdef gco=git
 
 alias gst='git status'
-
 alias gls='git ls-files'
+gdf() { git diff --color $@ | diff-so-fancy }
 
 alias mci='mvn clean install'
 alias mcit='mvn clean install -DskipTests'
