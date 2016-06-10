@@ -46,7 +46,7 @@ NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'lfe/vim-lfe'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'ryanmorillo/excel.vim'
+" NeoBundle 'ryanmorillo/excel.vim'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -85,6 +85,8 @@ NeoBundle 'liquidz/vivi.vim', {
 \   'osyo-manga/shabadou.vim',
 \   'osyo-manga/vim-watchdogs'
 \ ]}
+NeoBundle 'lambdatoast/elm.vim'
+NeoBundle 'rust-lang/rust.vim'
 
 call neobundle#end()
 
