@@ -882,7 +882,49 @@ snippet otp supervisor
 
 
 
+	%% vim: set et ts=2 sw=2 ai invlist si cul nu:
+# so4o
+snippet otp so4o
+	% @author  `g:snips_author` `g:my_email_addr`
+	% @copyright (C) `strftime("%Y")` `g:snips_author`. All Rights Reserved.
+	% @doc
+	%		${1}
+	% @end
+	% Created :  `strftime("%a %b %d %H:%M:%S %Y")` by `g:snips_author`
+
+	-module(`Filename()`).
+	-behaviour(supervisor).
+	-export([
+	         start_link/0
+	         , stop_child/1
+	         , start_child/1
+	        ]).
+	-export([init/1]).
+
+	start_link() ->
+	  supervisor:start_link({local, ?MODULE}, ?MODULE, []).
+
+	stop_child(Pid) when is_pid(Pid) ->
+	  supervisor:terminate_child(?MODULE, Pid).
+
+	start_child(Args) ->
+	  case supervisor:start_child(?MODULE, Args) of
+	    {ok, Child, _} -> {ok, Child};
+	    Other -> Other
+	  end.
+
+	init([]) ->
+	  {ok, {
+	     #{strategy => simple_one_for_one,
+	       intensity => 0,
+	       period => 1},
+	     [#{id => ${2},
+	        start => {${2}, start_link, [${3}]},
+	        type => supervisor,
+	        shutdown => 5000}]
+	    }}.
 	%% vim: set et ts=2 sw=2 ai invlist si cul nu:	
+
 # supervisor bridge
 snippet otp supervisor_bridge
 	%%%-------------------------------------------------------------------
