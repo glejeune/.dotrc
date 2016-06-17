@@ -89,6 +89,7 @@ NeoBundle 'liquidz/vivi.vim', {
 \ ]}
 NeoBundle 'lambdatoast/elm.vim'
 NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'powerman/vim-plugin-AnsiEsc'
 
 call neobundle#end()
 
