@@ -36,7 +36,7 @@ snippet o4o
 	init([]) ->
 	  {ok, {
 	    #{strategy => one_for_one,
-	      intensity => 1
+	      intensity => 1,
 	      period => 5},
 	    [
 	      %% insert worker or supervisor
@@ -139,4 +139,35 @@ snippet gen_server
 	% @hidden
 	code_change(_OldVsn, State, _Extra) ->
 	  {ok, State}.
+
+snippet app
+	-module(`Filename()`).
+	
+	-behaviour(application).
+	
+	-export([start/2, stop/1]).
+	
+	start(_StartType, _StartArgs) ->
+	  `substitute(Filename(), "_app$", "_sup", "")`:start_link().
+	
+	stop(_State) ->
+	  ok.
+
+snippet appsrc
+	{application, `substitute(Filename(), "\.app$", "", "")`,
+	 [{description, "$1"},
+	  {vsn, "$2"},
+	  {registered, []},
+	  {mod, {`substitute(Filename(), "\.app$", "_app", "")`, []}},
+	  {applications,
+	   [kernel,
+	    stdlib
+	   ]},
+	  {env,[]},
+	  {modules, []},
+	
+	  {maintainers, []},
+	  {licenses, []},
+	  {links, []}
+	 ]}.
 
