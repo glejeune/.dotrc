@@ -103,5 +103,10 @@ precmd () {
   RPS1=""
   
   export PS1 PS2 PS3 RPS1
+  case $TERM in
+    xterm*)
+      print -Pn "\e]0;.../$(basename $PWD) ($(git_prompt_info))\a"
+      ;;
+  esac
 }
 

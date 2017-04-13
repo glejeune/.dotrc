@@ -8,6 +8,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'idanarye/vim-merginal'
+NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'junegunn/gv.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/powerline', { "rtp": "powerline/bindings/vim" }
@@ -87,9 +89,13 @@ NeoBundle 'liquidz/vivi.vim', {
 \   'osyo-manga/shabadou.vim',
 \   'osyo-manga/vim-watchdogs'
 \ ]}
-NeoBundle 'lambdatoast/elm.vim'
+" NeoBundle 'lambdatoast/elm.vim'
+NeoBundle 'ElmCast/elm-vim'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'powerman/vim-plugin-AnsiEsc'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'rhysd/vim-crystal'
+NeoBundle 'vim-scripts/Greplace.vim'
 
 call neobundle#end()
 

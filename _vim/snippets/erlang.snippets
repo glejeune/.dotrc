@@ -171,3 +171,21 @@ snippet appsrc
 	  {links, []}
 	 ]}.
 
+snippet test
+	-module(`Filename()`).
+	-include_lib("eunit/include/eunit.hrl").
+	
+	`Filename()`_test_() ->
+	  {setup,
+	   fun() ->
+		   ok
+		 end,
+	   fun(_) ->
+		   ok
+		 end,
+		 [
+		   fun() ->
+			   ?assert(true)
+			 end
+		 ]}.
+

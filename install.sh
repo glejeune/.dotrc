@@ -62,6 +62,7 @@ create_symlinks() {
   save_and_link "_tmux.macosx" ".tmux.macosx"
   save_and_link "_tmux.linux" ".tmux.linux"
   save_and_link "_ctags" ".ctags"
+  save_and_link "_irbrc" ".irbrc"
   save_and_link "_urlview" ".urlview"
   save_and_link "_screenrc" ".screenrc"
   save_and_link "_gitconfig" ".gitconfig"
@@ -85,6 +86,10 @@ install_wrangler() {
   cd ~/bin/wrangler
   ./configure
   make
+}
+
+install_gems() {
+  gem install what_methods
 }
 
 create_symlinks

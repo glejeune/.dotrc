@@ -121,6 +121,9 @@ noremap <F3> :TagbarToggle<CR>
 " DiffTree
 noremap <F4> :DiffOrigToggle<CR>
 
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
+
 "  Set folding stuff
 " set foldmethod=syntax
 set foldmethod=manual   "fold based on indent
@@ -231,3 +234,5 @@ autocmd FileType erlang noremap  <leader>u :WranglerUndo<ENTER>
 
 let g:snips_author = "Gregoire Lejeune"
 let g:my_email_addr = "gregoire.lejeune@gmail.com"
+
+let g:elm_format_autosave = 1
