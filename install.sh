@@ -53,14 +53,24 @@ save_and_link() {
 
 create_symlinks() {
   cd ~
+  mkdir -p ~/.config/nvim/
+
+  # zsh
   save_and_link "_zsh" ".zsh"
   save_and_link "_zshrc" ".zshrc"
-  save_and_link "_vim" ".vim"
-  save_and_link "_vimrc" ".vimrc"
-  save_and_link "_vimrc.bundle" ".vimrc.bundle"
+  # tmux
   save_and_link "_tmux.conf" ".tmux.conf"
   save_and_link "_tmux.macosx" ".tmux.macosx"
   save_and_link "_tmux.linux" ".tmux.linux"
+  # vim
+  save_and_link "_vim" ".vim"
+  save_and_link "_vimrc" ".vimrc"
+  save_and_link "_vimrc.bundle" ".vimrc.bundle"
+  # nvim
+  save_and_link "bundle.vim" ".config/nvim/bundle.vim"
+  save_and_link "init.vim" ".config/nvim/init.vim"
+  save_and_link "_vim/snippets" ".config/nvim/snippets"
+
   save_and_link "_ctags" ".ctags"
   save_and_link "_irbrc" ".irbrc"
   save_and_link "_urlview" ".urlview"
