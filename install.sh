@@ -69,6 +69,7 @@ create_symlinks() {
   # nvim
   save_and_link "bundle.vim" ".config/nvim/bundle.vim"
   save_and_link "init.vim" ".config/nvim/init.vim"
+  save_and_link "_vim/bundle" ".config/nvim/bundle"
   save_and_link "_vim/snippets" ".config/nvim/snippets"
 
   save_and_link "_ctags" ".ctags"

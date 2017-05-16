@@ -44,15 +44,22 @@ NeoBundle 'tpope/vim-rails'
 " Elm
 NeoBundle 'ElmCast/elm-vim'
 
+"Rust
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'racer-rust/vim-racer'
+NeoBundle 'cespare/vim-toml'
+
 " Language common
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'garbas/vim-snipmate'
 
-call neobundle#end()
+" vimwiki
+NeoBundle 'vimwiki/vimwiki'
+NeoBundle 'mattn/calendar-vim'
 
-filetype plugin indent on
+call neobundle#end()
 
 NeoBundleCheck
 
@@ -70,11 +77,11 @@ colorscheme Benokai
 nmap <leader>u :GundoToggle<CR>
 
 " Ruby
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
-" syntastic 
+" syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -96,4 +103,30 @@ nmap <leader>f :NERDTreeToggle<CR>
 let g:snips_author = "Gregoire Lejeune"
 let g:my_email_addr = "gregoire.lejeune@gmail.com"
 
+"set path to wrangler directory
+let g:erlangWranglerPath = '~/bin/wrangler'
+
+"sample wrangler bindings
+autocmd FileType erlang vnoremap <leader>e :WranglerExtractFunction<ENTER>
+autocmd FileType erlang noremap  <leader>m :WranglerRenameModule<ENTER>
+autocmd FileType erlang noremap  <leader>f :WranglerRenameFunction<ENTER>
+autocmd FileType erlang noremap  <leader>v :WranglerRenameVariable<ENTER>
+autocmd FileType erlang noremap  <leader>p :WranglerRenameProcess<ENTER>
+autocmd FileType erlang noremap  <leader>mv :WranglerMoveFunction<ENTER>
+autocmd FileType erlang noremap  <leader>u :WranglerUndo<ENTER>
+
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_list = [{
+      \ 'path': '~/gregoire.lejeune@gmail.com/lejeun.es/wiki',
+      \ 'path_html': '~/gregoire.lejeune@gmail.com/lejeun.es/html',
+      \ 'template_path': '~/gregoire.lejeune@gmail.com/lejeun.es/tmpl',
+      \ 'template_default': 'default',
+      \ 'auto_export': 1,
+      \ 'auto_toc': 1},
+      \ {'path': '~/gregoire.lejeune@gmail.com/work',
+      \ 'path_html': '~/gregoire.lejeune@gmail.com/work_html',
+      \ 'auto_toc': 1}]
 set hidden
+syntax on
+filetype plugin indent on
+

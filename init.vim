@@ -7,10 +7,14 @@ set fileencoding=utf-8
 " auto complete on tab
 set wildmenu
 
+" tab are replaced by 2 spaces
+set expandtab
+set tabstop=2
+
 " << / >> right / left shift by 3 spaces
 set shiftwidth=2
 
-" copy indent from current line on <CR> 
+" copy indent from current line on <CR>
 set autoindent
 
 let mapleader = ","
@@ -32,7 +36,7 @@ nmap <leader><up> <C-W>K
 nmap <leader><down> <C-W>J
 nmap <leader><left> <C-W>H
 nmap <leader><right> <C-W>L
-nmap <leader>$ <C-]> 
+nmap <leader>$ <C-]>
 nmap <leader><space> :nohlsearch<CR>
 nmap <leader>t :vsplit term://zsh<CR>
 
@@ -54,3 +58,16 @@ nmap <C-Down> <C-f>
 " Window
 noremap w <C-w>
 noremap W <C-w><C-w>
+
+"  Set folding stuff
+" set foldmethod=syntax
+set foldmethod=manual   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
+set clipboard=unnamedplus
+set mouse-=a
+
+nmap <leader>m :!shiba --detach %<CR><CR>
+
