@@ -119,13 +119,14 @@ let g:vimwiki_hl_headers = 1
 let g:vimwiki_list = [{
       \ 'path': '~/gregoire.lejeune@gmail.com/lejeun.es/wiki',
       \ 'path_html': '~/gregoire.lejeune@gmail.com/lejeun.es/html',
-      \ 'template_path': '~/gregoire.lejeune@gmail.com/lejeun.es/tmpl',
+      \ 'template_path': '~/gregoire.lejeune@gmail.com/lejeun.es/vimwiki-assets',
       \ 'template_default': 'default',
-      \ 'auto_export': 1,
-      \ 'auto_toc': 1},
+      \ 'template_ext': '.tpl',
+      \ 'auto_export': 0,
+      \ 'auto_toc': 0},
       \ {'path': '~/gregoire.lejeune@gmail.com/work',
       \ 'path_html': '~/gregoire.lejeune@gmail.com/work_html',
-      \ 'auto_toc': 1}]
+      \ 'auto_toc': 0}]
 set hidden
 syntax on
 filetype plugin indent on

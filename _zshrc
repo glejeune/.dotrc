@@ -3,7 +3,7 @@ zshrc_load_status () {
 }
 
 export ZSHRC_LOCAL=~/.zshrc.local
-[ -d $ZSHRC_LOCAL ] && [ -f ~/.zshrc.local/zshrc ] && source ~/.zshrc.local/zshrc
+[ -d $ZSHRC_LOCAL ] && [ -f $ZSHRC_LOCAL/zshrc ] && source $ZSHRC_LOCAL/zshrc
 
 ZSHRC_PLATFORM='unknown'
 _UNAMESTR=$(uname)
@@ -15,16 +15,12 @@ fi
 
 fpath=(~/.zsh/functs $fpath)
 
-for file in ~/.zsh/rc/*; 
-do 
-  source $file 
+for file in ~/.zsh/rc/*;
+do
+  source $file
 done
 
 [ -f /usr/bin/dircolors ] && eval `dircolors ~/.zsh/dircolors.gen`
 
 setopt autocd
 
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
