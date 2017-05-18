@@ -59,6 +59,12 @@ NeoBundle 'garbas/vim-snipmate'
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'mattn/calendar-vim'
 
+" kotlin
+NeoBundle 'udalov/kotlin-vim'
+
+" Markdown
+NeoBundle 'mzlogin/vim-markdown-toc'
+
 call neobundle#end()
 
 NeoBundleCheck
