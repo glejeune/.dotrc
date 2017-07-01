@@ -22,6 +22,7 @@ NeoBundle 'sjbach/lusty'
 " Git
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'idanarye/vim-merginal'
 
 " erlang
 NeoBundle 'vim-erlang/vim-erlang-runtime'
@@ -65,6 +66,19 @@ NeoBundle 'udalov/kotlin-vim'
 " Markdown
 NeoBundle 'mzlogin/vim-markdown-toc'
 
+" Surround
+NeoBundle 'rcarraretto/vim-surround'
+
+" HTML, Javascript
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'mxw/vim-jsx'
+NeoBundle 'slim-template/vim-slim.git'
+
+" Other
+NeoBundle 'dpelle/vim-Grammalecte'
+
 call neobundle#end()
 
 NeoBundleCheck
@@ -102,8 +116,8 @@ let g:elm_format_autosave = 1
 
 " map nerdtree to F2
 let g:NERDTreeWinSize=45
-noremap <F2> :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeToggle<CR>
+noremap <F2> :NERDTreeToggle<CR>
 
 " Snipmate
 let g:snips_author = "Gregoire Lejeune"
@@ -137,3 +151,5 @@ set hidden
 syntax on
 filetype plugin indent on
 
+" Grammalecte
+let g:grammalecte_cli_py='~/bin/dicollecte/cli.py'

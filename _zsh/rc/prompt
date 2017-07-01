@@ -21,7 +21,7 @@ git_prompt_info() {
     GD=$?
     git diff --cached --quiet >/dev/null 2>&1
     GDC=$?
-    
+
     has_commit=$(git rev-list --no-merges --count origin/${branch_name}..${branch_name} 2>/dev/null)
     if [[ "$GD" -eq 1 || "$GDC" -eq "1" ]] ; then
       has_line=$(git diff --numstat 2>/dev/null | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d/-%d\n", plus, minus)}')
@@ -33,7 +33,7 @@ git_prompt_info() {
     else
       if [[ "$has_commit" -gt "0" ]] ; then
         ref=" ["$has_commit"]"
-      fi 
+      fi
     fi
     ref=$branch_name$ref
   else
@@ -52,20 +52,22 @@ precmd () {
   host_color="green"
 
   PSIZE=${COLUMNS}
-  
+
   USER_NAME=`whoami`
   HOST_NAME=`hostname`
   #BATTERY=$(ioreg -l | grep -i capacity | tr '\n' ' | ' | awk '{printf("%.2f", $10/$5 * 100)}')
+  DATE_TIME="%D{%Y-%m-%d %H:%M:%S}"
   PY_VENV=$(cdvirtualenv 2>/dev/null && pwd | awk -F"/" '{print $NF}')
-  if [[ -s ~/.rvm/scripts/rvm ]] ; then 
+  if [[ -s ~/.rvm/scripts/rvm ]] ; then
     RUBY_VERSION_PROMPT=$(~/.rvm/bin/rvm-prompt)
   elif [[ -s ~/.rbenv/bin/rbenv ]] ; then
     RUBY_VERSION_PROMPT=$(~/.rbenv/bin/rbenv version | awk '{print $1}')
   else
     RUBY_VERSION_PROMPT=""
   fi
-  LEFT=`echo "-("$USER_NAME"@"$HOST_NAME":"$PY_VENV":"$RUBY_VERSION_PROMPT")-"`
+  LEFT=`echo "-("$DATE_TIME"|"$USER_NAME"@"$HOST_NAME":"$PY_VENV":"$RUBY_VERSION_PROMPT")-"`
   let LEFT_SIZE=`echo -n $LEFT | wc -c | tr -d " "`
+  let LEFT_SIZE=$LEFT_SIZE-2
 
   let GIT_PROMPT_SIZE=`echo $(git_prompt_info) | wc -c | tr -d " "`
   let GIT_PROMPT_SIZE=${GIT_PROMPT_SIZE}-1
@@ -79,17 +81,17 @@ precmd () {
   DIR=`pwd`
   RIGHT=`echo "-("$DIR$GIT_PROMPT_DATA")-"`
   let RIGHT_SIZE=`echo -n $RIGHT | wc -c | tr -d " "`
-  
+
   let FILL_SIZE=$PSIZE-2-$RIGHT_SIZE-$LEFT_SIZE
-  
+
   FILL=""
   while [ "$FILL_SIZE" -gt "0" ]
   do
       FILL="${FILL}-"
       let FILL_SIZE=${FILL_SIZE}-1
-  done 
-  
-  LEFT=`echo "-(%{$fg[blue]%}"$USER_NAME"%{$fg[green]%}%b@%B%{$fg[blue]%}"$HOST_NAME"%{$fg[green]%}%b:%{$fg[yellow]%}"$PY_VENV"%b:%B%{$fg[yellow]%}"$RUBY_VERSION_PROMPT"%{$fg[green]%})-"`
+  done
+
+  LEFT=`echo "-(%{$fg[grey]%}"$DATE_TIME"%{$fg[green]%}|%{$fg[blue]%}"$USER_NAME"%{$fg[green]%}%b@%B%{$fg[blue]%}"$HOST_NAME"%{$fg[green]%}%b:%{$fg[yellow]%}"$PY_VENV"%b:%B%{$fg[yellow]%}"$RUBY_VERSION_PROMPT"%{$fg[green]%})-"`
   if [ "$GIT_PROMPT_SIZE" -eq "0" ] ; then
   	RIGHT=`echo "-("$DIR"%{$fg[red]%}"$(git_prompt_info)""%{$fg[green]%}")-"`
   else
@@ -101,7 +103,7 @@ precmd () {
   PS2="---> "
   PS3="---> "
   RPS1=""
-  
+
   export PS1 PS2 PS3 RPS1
   case $TERM in
     xterm*)

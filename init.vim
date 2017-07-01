@@ -69,5 +69,8 @@ set foldlevel=1         "this is just what i use
 set clipboard=unnamedplus
 set mouse-=a
 
-nmap <leader>m :!shiba --detach %<CR><CR>
+nmap <leader>M :!shiba --detach %<CR><CR>
 
+if filereadable(expand('.local.vimrc'))
+  source .local.vimrc
+endif
