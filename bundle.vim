@@ -60,7 +60,8 @@ NeoBundle 'garbas/vim-snipmate'
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'mattn/calendar-vim'
 
-" kotlin
+" Java, Scala, kotlin
+NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'udalov/kotlin-vim'
 
 " Markdown

@@ -13,7 +13,7 @@ set date_format="%A %d %b %Y à %H:%M:%S (%Z)"
 set attribution="Le %d, %n à écrit:"
 set forward_format="[Fwd: %s]"
 set forward_quote
-set mime_forward=yes 
+set mime_forward=yes
 set mime_forward_rest=yes
 
 set pager_index_lines="7"
@@ -25,6 +25,22 @@ macro attach s "<save-entry><bol>~/Downloads/<eol>"
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Sidebar Patch --------------------------------------
+set sidebar_width=30
+set sidebar_visible=yes
+set sidebar_delim='|'
+set sidebar_sort=no
+mailboxes ='gregoire.lejeune@flamefy.com/INBOX'
+mailboxes ='gregoire.lejeune@gmail.com/INBOX'
+mailboxes ='greg@g-corp.io/INBOX'
+mailboxes ='glejeune@msaas.net/INBOX'
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'
+bind index B bounce-message
 
 set edit_hdrs
 #force l'utilisation d'un programme exterieur pour les mails en HTML
@@ -41,7 +57,7 @@ set hdr_format="%4C %Z %{%d/%m/%Y} %15.15F (%4c) %s"
 # Logique de tri primaire
 set sort = threads
 # Logique de tri secondaire
-set sort_aux = reverse-last-date-received 
+set sort_aux = reverse-last-date-received
 set uncollapse_jump                        # don't collapse on an unread message
 set sort_re                                # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"

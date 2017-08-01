@@ -50,3 +50,6 @@ alias valgrind='valgrind --dsymutil=yes'
 
 alias webserver='python -m SimpleHTTPServer'
 alias smtpdebug='python -m smtpd -n -c DebuggingServer localhost:3025'
+
+# ffmpeg
+alias ffp="ffprobe -v quiet -of json -show_format -show_streams"
