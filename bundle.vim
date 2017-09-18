@@ -1,88 +1,95 @@
 """ -*- mode: vim -*-
-set nocompatible
+if &compatible
+  set nocompatible
+endif
 
 filetype off
-set rtp+=~/.config/nvim/bundle/neobundle.vim
-call neobundle#begin(expand('~/.config/nvim/bundle/'))
+set rtp+=~/.config/nvim/bundle/dein.vim
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+if dein#load_state(expand('~/.config/nvim/bundle/'))
+  call dein#begin(expand('~/.config/nvim/bundle/'))
+
+  call dein#add(expand('~/.config/nvim/bundle/dein.vim'))
 
 " config
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'felixhummel/setcolors.vim'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'sjbach/lusty'
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('kien/ctrlp.vim')
+  call dein#add('rking/ag.vim')
+  call dein#add('scrooloose/syntastic')
+  call dein#add('flazz/vim-colorschemes')
+  call dein#add('felixhummel/setcolors.vim')
+  call dein#add('sjl/gundo.vim')
+  call dein#add('sjbach/lusty')
 
 " Git
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'idanarye/vim-merginal'
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('idanarye/vim-merginal')
 
 " erlang
-NeoBundle 'vim-erlang/vim-erlang-runtime'
-NeoBundle 'vim-erlang/vim-erlang-tags'
-NeoBundle 'vim-erlang/vim-erlang-compiler'
-NeoBundle 'vim-erlang/vim-erlang-omnicomplete'
-NeoBundle 'vim-erlang/erlang-motions.vim'
-NeoBundle 'vim-erlang/vim-erlang-skeletons'
+  call dein#add('vim-erlang/vim-erlang-runtime')
+  call dein#add('vim-erlang/vim-erlang-tags')
+  call dein#add('vim-erlang/vim-erlang-compiler')
+  call dein#add('vim-erlang/vim-erlang-omnicomplete')
+  call dein#add('vim-erlang/erlang-motions.vim')
+  call dein#add('vim-erlang/vim-erlang-skeletons')
 
 " Elixir
-NeoBundle 'elixir-lang/vim-elixir'
+  call dein#add('elixir-lang/vim-elixir')
 
 " LFE
-NeoBundle 'lfe/vim-lfe'
+  call dein#add('lfe/vim-lfe')
 
 " Ruby
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'tpope/vim-rails'
+  call dein#add('vim-ruby/vim-ruby')
+  call dein#add('tpope/vim-rails')
 
 " Elm
-NeoBundle 'ElmCast/elm-vim'
+  call dein#add('ElmCast/elm-vim')
 
 "Rust
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'racer-rust/vim-racer'
-NeoBundle 'cespare/vim-toml'
+  call dein#add('rust-lang/rust.vim')
+  call dein#add('racer-rust/vim-racer')
+  call dein#add('cespare/vim-toml')
 
 " Language common
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'garbas/vim-snipmate'
+  call dein#add('editorconfig/editorconfig-vim')
+  call dein#add('tomtom/tlib_vim')
+  call dein#add('MarcWeber/vim-addon-mw-utils')
+  call dein#add('garbas/vim-snipmate')
 
 " vimwiki
-NeoBundle 'vimwiki/vimwiki'
-NeoBundle 'mattn/calendar-vim'
+  call dein#add('vimwiki/vimwiki')
+  call dein#add('mattn/calendar-vim')
 
 " Java, Scala, kotlin
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'udalov/kotlin-vim'
+  call dein#add('derekwyatt/vim-scala')
+  call dein#add('udalov/kotlin-vim')
 
 " Markdown
-NeoBundle 'mzlogin/vim-markdown-toc'
+  call dein#add('mzlogin/vim-markdown-toc')
 
 " Surround
-NeoBundle 'rcarraretto/vim-surround'
+  call dein#add('rcarraretto/vim-surround')
 
 " HTML, Javascript
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'maksimr/vim-jsbeautify'
-NeoBundle 'othree/yajs.vim'
-NeoBundle 'mxw/vim-jsx'
-NeoBundle 'slim-template/vim-slim.git'
+  call dein#add('pangloss/vim-javascript')
+  call dein#add('maksimr/vim-jsbeautify')
+  call dein#add('othree/yajs.vim')
+  call dein#add('mxw/vim-jsx')
+  call dein#add('slim-template/vim-slim.git')
+
+" Haskell
+  call dein#add('neovimhaskell/haskell-vim')
 
 " Other
-NeoBundle 'dpelle/vim-Grammalecte'
+  call dein#add('dpelle/vim-Grammalecte')
 
-call neobundle#end()
-
-NeoBundleCheck
+  call dein#end()
+  call dein#save_state()
+endif
 
 " -- config -------------------------------------------------------------------
 
@@ -149,7 +156,7 @@ let g:vimwiki_list = [{
       \ 'path_html': '~/gregoire.lejeune@gmail.com/work_html',
       \ 'auto_toc': 0}]
 set hidden
-syntax on
+syntax enable
 filetype plugin indent on
 
 " Grammalecte
