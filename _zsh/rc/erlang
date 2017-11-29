@@ -1,0 +1,3 @@
+zshrc_load_status Erlang
+
+export ERL_AFLAGS="-kernel shell_history enabled"

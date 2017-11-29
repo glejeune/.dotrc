@@ -1,5 +1,8 @@
 source ~/.config/nvim/bundle.vim
 
+" Hum...
+set guicursor=
+
 " use utf8 encoding for vim files and for default file encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -70,6 +73,12 @@ set clipboard=unnamedplus
 set mouse-=a
 
 nmap <leader>M :!shiba --detach %<CR><CR>
+
+" :hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+" :hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:hi CursorLine   cterm=NONE ctermbg=white ctermfg=black guibg=white guifg=black
+:hi CursorColumn cterm=NONE ctermbg=white ctermfg=black guibg=white guifg=black
+:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 if filereadable(expand('.local.vimrc'))
   source .local.vimrc

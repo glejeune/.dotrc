@@ -36,9 +36,10 @@ install_vundle() {
   mv .vimrc.bundle .vimrc
   cd $INSTALL_ROOT_PATH
   [ -e "_vim/bundle" ] && rm -rf _vim/bundle
-  mkdir -p _vim/bundle
-  [ -e "_vim/bundle/neobundle.vim" ] || git clone https://github.com/Shougo/neobundle.vim _vim/bundle/neobundle.vim
-  vim +NeoBundleInstall +qall
+  [ -e "_vim/plugged" ] && rm -rf _vim/plugged
+  mkdir -p _vim/plugged
+  [ -e "~/.local/share/nvim/site/autoload/plug.vim" ] || curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  vim +PlugInstall +qall
   cd ~
   mv .vimrc .vimrc.bundle
   mv .vimrc.keep .vimrc

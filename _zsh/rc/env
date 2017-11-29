@@ -15,9 +15,6 @@ if [ -d ~/tools ] ; then
 fi
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
-# Git
-export GIT_EDITOR="vim -w"
-
 # When using zsh with brew on Mac
 if [[ "$ZSHRC_PLATFORM" == "Darwin" ]] ; then
   if [ -f /usr/local/bin/zsh ] ; then

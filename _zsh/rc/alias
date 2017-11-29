@@ -30,9 +30,13 @@ alias ggpush='git push origin $(current_branch)'
 #compdef ggpush=git
 alias ggpusht='git push origin $(current_branch) --tags'
 #compdef ggpusht=git
+alias gbb='git merge-base $(current_branch) master'
+alias gsquash='git rebase -i $(gbb)'
+alias gf='git fetch && git remote update origin --prune'
 
 #alias gl='git log --oneline --graph --decorate -20 --color'
-alias gl='git log --graph -40 --color --decorate --pretty=format:"%C(yellow)%h%Creset %Cred%d%Creset %s %Cblue<%an>%Creset [%ar]"'
+#alias gl='git log --graph --full-history --all --color --decorate --pretty=format:"%C(yellow)%h%Creset %Cred%d%Creset %s %Cblue<%an>%Creset [%ar]"'
+alias gl='git log --graph --full-history --all --color --decorate --pretty=format:"%C(yellow)%h%Creset %C(auto)%d%Creset %s %Cblue<%an>%Creset [%ar]"'
 alias gco='git checkout'
 #compdef gco=git
 
@@ -53,3 +57,7 @@ alias smtpdebug='python -m smtpd -n -c DebuggingServer localhost:3025'
 
 # ffmpeg
 alias ffp="ffprobe -v quiet -of json -show_format -show_streams"
+
+function file_size() {
+  find . -name "$1" -exec ls -l {} \; | awk '{print $5}' | paste -s -d+ - | bc
+}

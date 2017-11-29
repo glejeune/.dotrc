@@ -4,92 +4,91 @@ if &compatible
 endif
 
 filetype off
-set rtp+=~/.config/nvim/bundle/dein.vim
+" set rtp+=~/.config/nvim/bundle/dein.vim
 
-if dein#load_state(expand('~/.config/nvim/bundle/'))
-  call dein#begin(expand('~/.config/nvim/bundle/'))
-
-  call dein#add(expand('~/.config/nvim/bundle/dein.vim'))
+call plug#begin('~/.vim/plugged')
 
 " config
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('kien/ctrlp.vim')
-  call dein#add('rking/ag.vim')
-  call dein#add('scrooloose/syntastic')
-  call dein#add('flazz/vim-colorschemes')
-  call dein#add('felixhummel/setcolors.vim')
-  call dein#add('sjl/gundo.vim')
-  call dein#add('sjbach/lusty')
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/ctrlp.vim'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/syntastic'
+Plug 'flazz/vim-colorschemes'
+Plug 'felixhummel/setcolors.vim'
+Plug 'sjl/gundo.vim'
+Plug 'sjbach/lusty'
 
 " Git
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('idanarye/vim-merginal')
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'idanarye/vim-merginal'
+Plug 'gregsexton/gitv'
 
 " erlang
-  call dein#add('vim-erlang/vim-erlang-runtime')
-  call dein#add('vim-erlang/vim-erlang-tags')
-  call dein#add('vim-erlang/vim-erlang-compiler')
-  call dein#add('vim-erlang/vim-erlang-omnicomplete')
-  call dein#add('vim-erlang/erlang-motions.vim')
-  call dein#add('vim-erlang/vim-erlang-skeletons')
+Plug 'vim-erlang/vim-erlang-runtime'
+Plug 'vim-erlang/vim-erlang-tags'
+Plug 'vim-erlang/vim-erlang-compiler'
+Plug 'vim-erlang/vim-erlang-omnicomplete'
+Plug 'vim-erlang/erlang-motions.vim'
+Plug 'vim-erlang/vim-erlang-skeletons'
 
 " Elixir
-  call dein#add('elixir-lang/vim-elixir')
+Plug 'elixir-lang/vim-elixir'
+Plug 'mhinz/vim-mix-format'
 
 " LFE
-  call dein#add('lfe/vim-lfe')
+Plug 'lfe/vim-lfe'
 
 " Ruby
-  call dein#add('vim-ruby/vim-ruby')
-  call dein#add('tpope/vim-rails')
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 
 " Elm
-  call dein#add('ElmCast/elm-vim')
+Plug 'ElmCast/elm-vim'
 
 "Rust
-  call dein#add('rust-lang/rust.vim')
-  call dein#add('racer-rust/vim-racer')
-  call dein#add('cespare/vim-toml')
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'cespare/vim-toml'
 
 " Language common
-  call dein#add('editorconfig/editorconfig-vim')
-  call dein#add('tomtom/tlib_vim')
-  call dein#add('MarcWeber/vim-addon-mw-utils')
-  call dein#add('garbas/vim-snipmate')
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
 
 " vimwiki
-  call dein#add('vimwiki/vimwiki')
-  call dein#add('mattn/calendar-vim')
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
 
 " Java, Scala, kotlin
-  call dein#add('derekwyatt/vim-scala')
-  call dein#add('udalov/kotlin-vim')
+Plug 'derekwyatt/vim-scala'
+Plug 'udalov/kotlin-vim'
 
 " Markdown
-  call dein#add('mzlogin/vim-markdown-toc')
+Plug 'mzlogin/vim-markdown-toc'
 
 " Surround
-  call dein#add('rcarraretto/vim-surround')
+Plug 'rcarraretto/vim-surround'
 
 " HTML, Javascript
-  call dein#add('pangloss/vim-javascript')
-  call dein#add('maksimr/vim-jsbeautify')
-  call dein#add('othree/yajs.vim')
-  call dein#add('mxw/vim-jsx')
-  call dein#add('slim-template/vim-slim.git')
+Plug 'pangloss/vim-javascript'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'othree/yajs.vim'
+Plug 'mxw/vim-jsx'
+Plug 'slim-template/vim-slim'
 
 " Haskell
-  call dein#add('neovimhaskell/haskell-vim')
+Plug 'neovimhaskell/haskell-vim'
 
 " Other
-  call dein#add('dpelle/vim-Grammalecte')
+Plug 'dpelle/vim-Grammalecte'
+Plug 'godlygeek/tabular'
+Plug 'amadeus/vim-mjml'
 
-  call dein#end()
-  call dein#save_state()
-endif
+call plug#end()
 
 " -- config -------------------------------------------------------------------
 
