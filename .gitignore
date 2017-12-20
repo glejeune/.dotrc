@@ -2,3 +2,4 @@ _vim/bundle
 _vim/.netrwhis*
 *.swp
 .DS_Store
+/.gtm/

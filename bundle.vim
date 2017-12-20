@@ -25,6 +25,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'idanarye/vim-merginal'
 Plug 'gregsexton/gitv'
+Plug 'git-time-metric/gtm-vim-plugin'
 
 " erlang
 Plug 'vim-erlang/vim-erlang-runtime'
@@ -99,6 +100,15 @@ let g:airline#extensions#tabline#enabled = 1
 let s:mycolors = ['Benokai', 'brogrammer', 'buddy', 'buttercream', 'carvedwood', 'cobalt2', 'deepsea', 'emacs', 'fruidle']
 colorscheme Benokai
 "colorscheme badwolf
+" + gtm
+let g:gtm_plugin_status_enabled = 1
+function! AirlineInit()
+  if exists('*GTMStatusline')
+    call airline#parts#define_function('gtmstatus', 'GTMStatusline')
+    let g:airline_section_b = airline#section#create([g:airline_section_b, ' ', '[', 'gtmstatus', ']'])
+  endif
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 
 " Gundo
 nmap <leader>u :GundoToggle<CR>
@@ -120,6 +130,9 @@ let g:syntastic_check_on_wq = 0
 
 " Elm
 let g:elm_format_autosave = 1
+
+" JSX
+let g:jsx_ext_required = 0
 
 " map nerdtree to F2
 let g:NERDTreeWinSize=45
